@@ -1,10 +1,11 @@
 # ng-slides
 
-A way to make multi-lingual presentations in an accessible and efficient manner.
+A way to make multi-lingual presentations locally, using Angular.
 
 ## Done:
 - [x] Add max width option
 - [x] Add fullscreen option (via "Present" button)
+- [x] Add arrow navigation support in fullscreen mode
 - [x] Add markdown support
 - [x] Add reusable components support (reuse groups of slides)
 - [x] Add dark mode
