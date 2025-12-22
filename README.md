@@ -2,6 +2,10 @@
 
 A way to make multi-lingual presentations locally, using Angular.
 
+## Motivation
+
+I hate working with PowerPoint and I hate copy-pasting content between similar presentations.
+
 ## Done:
 - [x] Add max width option
 - [x] Add fullscreen option (via "Present" button)
