@@ -3,26 +3,22 @@
     <legend>View</legend>
     <div>
       <div>
-        <input
-          type="radio"
-          id="web-view"
-          value="web"
-          name="view"
-          [(ngModel)]="view"
-          (ngModelChange)="updateView($event)"
-        />
+        <input type="radio"
+               id="web-view"
+               value="web"
+               name="view"
+               [(ngModel)]="view"
+               (ngModelChange)="updateView($event)" />
         <label for="web-view">Web view</label>
       </div>
 
       <div>
-        <input
-          type="radio"
-          id="slide-view"
-          value="slide"
-          name="view"
-          [(ngModel)]="view"
-          (ngModelChange)="updateView($event)"
-        />
+        <input type="radio"
+               id="slide-view"
+               value="slide"
+               name="view"
+               [(ngModel)]="view"
+               (ngModelChange)="updateView($event)" />
         <label for="slide-view">Slide view</label>
       </div>
     </div>
@@ -30,37 +26,36 @@
 
   <div class="option">
     <label for="max-width">Max width / Zoom</label>
-    <input
-      [(ngModel)]="maxWidth"
-      (ngModelChange)="updateMaxWidth($event)"
-      id="max-width"
-      type="range"
-      min="10"
-      max="100"
-    />
+    <input [(ngModel)]="maxWidth"
+           (ngModelChange)="updateMaxWidth($event)"
+           id="max-width"
+           type="range"
+           min="10"
+           max="100" />
     <output for="max-width">{{maxWidth}}%</output>
   </div>
 
   <div class="option">
     <label for="dark-mode">Dark mode</label>
-    <input
-      [(ngModel)]="isDarkMode"
-      (ngModelChange)="updateDarkMode($event)"
-      id="dark-mode"
-      type="checkbox"
-    />
+    <input [(ngModel)]="isDarkMode"
+           (ngModelChange)="updateDarkMode($event)"
+           id="dark-mode"
+           t
+           ype="checkbox" />
   </div>
 </div>
 
 <div class="right-container">
   <div class="option">
     <label for="language">Language</label>
-    <select name="language" id="language">
+    <select name="language"
+            id="language">
       <option value="english">English</option>
       <option value="romanian">Română</option>
     </select>
   </div>
-  <button (click)="present()" [disabled]="view === 'web'">
+  <button (click)="present()"
+          [disabled]="view === 'web'">
     <span aria-hidden="true">🖥️</span>
     Present
   </button>

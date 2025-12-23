@@ -1,35 +1,45 @@
-import { AfterContentInit, Directive, ElementRef, Inject, PLATFORM_ID } from '@angular/core';
+import {
+  AfterViewInit,
+  Directive,
+  ElementRef,
+  inject,
+  Inject,
+  PLATFORM_ID,
+  Renderer2,
+} from '@angular/core';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 
 @Directive({
   selector: '[extract]',
 })
-export class ExtractSlidesDirective implements AfterContentInit {
+export class ExtractSlidesDirective implements AfterViewInit {
+  renderer = inject(Renderer2);
+  elementRef = inject(ElementRef<HTMLElement>);
+
   constructor(
-    private host: ElementRef<HTMLElement>,
-    @Inject(DOCUMENT) private document: Document,
-    @Inject(PLATFORM_ID) private platformId: object
+    @Inject(DOCUMENT) private readonly document: Document,
+    @Inject(PLATFORM_ID) private readonly platformId: object
   ) {}
 
-  ngAfterContentInit(): void {
-    if (!isPlatformBrowser(this.platformId)) {
-      return;
-    }
+  ngAfterViewInit(): void {
+    // if (!isPlatformBrowser(this.platformId)) {
+    //   return;
+    // }
 
-    this.extract();
+    // this.extractSlides();
   }
 
-  private extract(): void {
-    const slideGroup = this.host.nativeElement;
+  private extractSlides(): void {
+    const slideGroup = this.elementRef.nativeElement;
     const slides = this.document.body.querySelector('app-slides');
     if (!slides) return;
 
     while (slideGroup.firstChild) {
-      slides.insertBefore(slideGroup.firstChild, slideGroup);
+      this.renderer.insertBefore(slides, slideGroup.firstChild, slideGroup);
     }
 
     setTimeout(() => {
-      slideGroup.remove();
+      this.renderer.removeChild(slides, slideGroup);
     });
   }
 }

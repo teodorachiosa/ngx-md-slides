@@ -25,10 +25,6 @@ export class Slides implements AfterViewInit {
     if (typeof document !== 'undefined') {
       this.allSlides = this.elementRef.nativeElement.querySelectorAll('app-slide');
     }
-
-    if(this.optionsService.getOptions().isFullscreen && this.allSlides) {
-      this.allSlides[0].focus();
-    }
   }
 
   @HostBinding('style.maxWidth') get maxWidth() {

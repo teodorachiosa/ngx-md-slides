@@ -1,7 +1,11 @@
 {
-    "workbench.colorCustomizations": {
-        "activityBar.background": "#34102b",
-        "titleBar.activeBackground": "#491731",
-        "titleBar.activeForeground": "#fcf5f9"
-    }
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#34102b",
+    "titleBar.activeBackground": "#491731",
+    "titleBar.activeForeground": "#fcf5f9"
+  },
+  "html.format.wrapAttributes": "force-aligned",
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  }
 }

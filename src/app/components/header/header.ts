@@ -17,7 +17,6 @@ export class Header implements OnInit, AfterViewInit {
   view: View = 'slide';
   maxWidth: number = 100;
   isDarkMode: boolean = false;
-  isFullscreen = false;
 
   headerElement?: HTMLElement | null;
 
@@ -64,8 +63,7 @@ export class Header implements OnInit, AfterViewInit {
     if (!document.fullscreenElement) {
       document.documentElement.requestFullscreen();
       this.headerElement?.classList.add('fullscreen');
-      this.isFullscreen = true;
-      this.updateFullscreenUI();
+      this.updateFullscreenStateAndUI(true);
     }
   }
 
@@ -73,16 +71,16 @@ export class Header implements OnInit, AfterViewInit {
     if (document.fullscreenElement) return;
 
     this.headerElement?.classList.remove('fullscreen');
-    this.isFullscreen = false;
-    this.updateFullscreenUI();
+    this.updateFullscreenStateAndUI(false);
   }
 
-  updateFullscreenUI(): void {
-    this.options['isFullscreen'] = this.isFullscreen;
+  updateFullscreenStateAndUI(isFullscreen: boolean): void {
+    this.options['isFullscreen'] = isFullscreen;
     this.optionsService.setOptions(this.options);
+
     let bodyElement = document.querySelector('body');
     if (bodyElement) {
-      bodyElement.style.overflow = this.isFullscreen ? 'hidden' : 'auto';
+      bodyElement.style.overflow = isFullscreen ? 'hidden' : 'auto';
     }
   }
 }
