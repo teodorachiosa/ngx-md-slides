@@ -1,6 +1,7 @@
 :host {
   position: relative;
   display: flex;
+  flex-direction: column;
   width: 100%;
   max-width: 100%;
   min-width: fit-content;
@@ -40,6 +41,14 @@
 
   ::ng-deep img {
     max-width: 100%;
+  }
+
+  ::ng-deep :first-child {
+    margin-top: 0;
+  }
+
+  ::ng-deep :last-child {
+    margin-bottom: 0;
   }
 
   &:focus {
