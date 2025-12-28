@@ -5,7 +5,7 @@
   accent-color: light-dark(black, white);
 
   --base-font: 'Inclusive Sans', sans-serif;
-  --input-height: 30px;
+  --header-height: 60px;
 
   --spacing: 30px;
   --background: light-dark(rgb(230 230 230), rgb(15 15 15));

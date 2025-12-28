@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { Header } from './components/header/header';
-import { SlideDeck } from '@slide-decks/slide-deck/slide-deck';
+import { RouterLink, RouterOutlet, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [Header, SlideDeck],
+  imports: [Header, RouterLink, RouterOutlet, RouterLinkActive, RouterLinkActive],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

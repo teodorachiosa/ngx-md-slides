@@ -4,5 +4,13 @@
 </div> -->
 <header header></header>
 <main>
-  <app-slide-deck></app-slide-deck> <!-- router-outlet -->
+  <nav>
+    <a [routerLink]="['/slide-deck1']"
+       routerLinkActive="active"
+       ariaCurrentWhenActive="page">Slide deck #1</a>
+    <a [routerLink]="['/slide-deck2']"
+       routerLinkActive="active"
+       ariaCurrentWhenActive="page">Slide deck #2</a>
+  </nav>
+  <router-outlet></router-outlet>
 </main>

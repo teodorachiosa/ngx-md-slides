@@ -11,12 +11,13 @@
   background: var(--surface-background-transparent);
   backdrop-filter: blur(10px);
   padding: calc(var(--spacing) / 3);
+  height: var(--header-height);
 
   .left-container,
   .right-container {
     display: flex;
     align-items: center;
-    gap: var(--spacing);
+    gap: calc(var(--spacing) / 3);
   }
 
   .option {
@@ -43,7 +44,6 @@
 
       .radio {
         display: flex;
-        height: var(--input-height);
 
         &:first-child {
           border-right: 2px solid var(--shadow-color);
@@ -77,10 +77,16 @@
               display: flex;
               align-items: center;
               margin-left: calc(var(--spacing) / 5);
+              font-size: 13px;
             }
           }
         }
       }
+    }
+
+    select {
+      border: 2px solid var(--shadow-color);
+      padding: calc(var(--spacing) / 5);
     }
   }
 }
@@ -89,4 +95,12 @@
   :host {
     display: none;
   }
+}
+
+.margin-left {
+  margin-left: calc(var(--spacing) / 2);
+}
+
+.margin-right {
+  margin-right: calc(var(--spacing) / 2);
 }
