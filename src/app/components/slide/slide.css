@@ -57,6 +57,5 @@
     font-size: 3cqi;
     overflow-x: visible;
     overflow-y: clip;
-    scroll-snap-align: center;
   }
 }

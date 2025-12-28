@@ -3,7 +3,6 @@
 :root {
   color-scheme: light dark;
   accent-color: light-dark(black, white);
-  scroll-snap-type: y proximity;
 
   --base-font: 'Inclusive Sans', sans-serif;
   --input-height: 30px;
