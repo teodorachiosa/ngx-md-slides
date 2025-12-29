@@ -10,6 +10,8 @@
   --spacing: 30px;
   --background: light-dark(rgb(230 230 230), rgb(15 15 15));
   --surface-background: light-dark(rgb(255 255 255), rgb(30 30 30));
+  --light-grey: rgba(127 127 127 / 0.15);
+  --dark-grey: rgba(127 127 127 / 0.7);
 
   --surface-transparency: 0.9;
   --surface-background-transparent: light-dark(
@@ -23,7 +25,7 @@
   /**
   COLORS
   **/
-  --color-alpha: 0.3;
+  --color-alpha: 0.2;
   --red: oklch(60% 0.32 25 / var(--color-alpha));
   --orange: oklch(70% 0.29 70 / var(--color-alpha));
   --yellow: oklch(75% 0.28 95 / var(--color-alpha));
@@ -72,6 +74,7 @@ button {
 input,
 select {
   font: inherit;
+  background: var(--background);
 }
 
 fieldset {
@@ -82,6 +85,15 @@ fieldset {
 
   legend {
     padding: 0;
+  }
+}
+
+a {
+  text-underline-offset: 3px;
+
+  &:hover,
+  &:focus {
+    text-underline-offset: 4px;
   }
 }
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 import { MarkdownComponent } from 'ngx-markdown';
 
 import { Slide } from '@components/slide/slide';
@@ -9,4 +9,7 @@ import { Slide } from '@components/slide/slide';
   templateUrl: './slide-group.html',
   styleUrl: './slide-group.css',
 })
-export class SlideGroup {}
+export class SlideGroup {
+  @HostBinding('attr.role')
+  groupRole = 'presentation';
+}

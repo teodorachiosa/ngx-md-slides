@@ -1,10 +1,11 @@
-<!-- <div class="skip-links">
-  <a href="#present">Skip to "Present"</a>
-  <a href="#slides">Skip to slides</a>
-</div> -->
+<div class="skip-links">
+  <a [routerLink]="['/']" fragment="present">Skip to "Present"</a>
+  <a [routerLink]="['/']" fragment="nav">Skip to navigation</a>
+  <a [routerLink]="['/']" fragment="slides">Skip to slides</a>
+</div>
 <header header></header>
 <main>
-  <nav>
+  <nav id="nav" tabindex="-1">
     <a [routerLink]="['/slide-deck1']"
        routerLinkActive="active"
        ariaCurrentWhenActive="page">Slide deck #1</a>

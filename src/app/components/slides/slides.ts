@@ -35,6 +35,7 @@ export class Slides implements AfterViewInit {
     }
 
     this.assignSlideNumber();
+    this.updateListItemRoles();
   }
 
   @HostBinding('style.maxWidth') get maxWidth() {
@@ -97,11 +98,21 @@ export class Slides implements AfterViewInit {
     this.allSlides?.forEach((slide, index) => {
       if (typeof window === 'undefined') return;
 
-      const paragraph: HTMLElement = this.renderer.createElement('span');
-      this.renderer.addClass(paragraph, 'slide-number');
+      const span: HTMLElement = this.renderer.createElement('span');
+      this.renderer.addClass(span, 'slide-number');
+      this.renderer.setAttribute(span, 'aria-hidden', 'true');
       const text = this.renderer.createText(`${index + 1}`);
-      this.renderer.appendChild(paragraph, text);
-      this.renderer.appendChild(slide, paragraph);
+      this.renderer.appendChild(span, text);
+      this.renderer.appendChild(slide, span);
+    });
+  }
+
+  updateListItemRoles(): void {
+    this.allSlides?.forEach((slide, index) => {
+      if (typeof window === 'undefined') return;
+
+      slide.ariaPosInSet = `${index + 1}`;
+      slide.ariaSetSize = this.allSlides ? `${this.allSlides?.length}` : '0';
     });
   }
 }
