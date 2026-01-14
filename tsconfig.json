@@ -19,6 +19,7 @@
       "@components/*": ["app/components/*"],
       "@services/*": ["app/services/*"],
       "@models/*": ["app/models/*"],
+      "@shared/*": ["app/shared/*"],
       "@slide-decks/*": ["app/slide-decks/*"],
       "@slide-groups/*": ["app/slide-groups/*"]
     }

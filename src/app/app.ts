@@ -1,4 +1,10 @@
-import { AfterViewInit, Component, DOCUMENT, inject, OnDestroy, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  DOCUMENT,
+  inject,
+  OnDestroy,
+} from '@angular/core';
 import { Header } from './components/header/header';
 import {
   RouterLink,
@@ -9,8 +15,12 @@ import {
   ActivatedRoute,
   TitleStrategy,
 } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { Subscription } from 'rxjs';
+
+import TRANSLATIONS_EN from '../../public/i18n/en.json';
+import TRANSLATIONS_RO from '../../public/i18n/ro.json';
 
 // const CLEAN_UP_ANNOUNCEMENT_TIMEOUT = 3000;
 
@@ -26,7 +36,15 @@ export class App implements AfterViewInit, OnDestroy {
   announcer = inject(LiveAnnouncer);
   document = inject(DOCUMENT);
   titleStrategy = inject(TitleStrategy);
+  translate = inject(TranslateService);
   routerEventsSubscription: Subscription = Subscription.EMPTY;
+
+  constructor() {
+    this.translate.setTranslation('en', TRANSLATIONS_EN);
+    this.translate.setTranslation('ro', TRANSLATIONS_RO);
+    this.translate.setFallbackLang('en');
+    this.translate.use('en');
+  }
 
   ngAfterViewInit(): void {
     this.routerEventsSubscription = this.router.events.subscribe((navigationEvent) => {

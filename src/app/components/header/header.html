@@ -48,9 +48,11 @@
   <div class="option">
     <label for="language">Language</label>
     <select name="language"
-            id="language">
-      <option value="english">English</option>
-      <option value="romanian">Română</option>
+            id="language"
+            [ngModel]="language"
+            (ngModelChange)="switchLanguage($event)">
+      <option value="en" lang="en">English</option>
+      <option value="ro" lang="ro">Română</option>
     </select>
   </div>
   <button (click)="present()"
