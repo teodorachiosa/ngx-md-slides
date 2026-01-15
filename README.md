@@ -32,6 +32,7 @@ I hate working with PowerPoint and I hate copy-pasting content between similar p
 - [ ] Jump to page option
 - [ ] Save settings to cookies
 - [ ] Implement responsive header
+- [ ] Handle 404 (page not found)
 
 ## How to run
 
