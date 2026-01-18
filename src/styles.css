@@ -5,7 +5,6 @@
   accent-color: light-dark(black, white);
 
   --base-font: 'Inclusive Sans', sans-serif;
-  --header-height: 60px;
 
   --spacing: 30px;
   --background: light-dark(rgb(230 230 230), rgb(15 15 15));
@@ -42,6 +41,14 @@
   --magenta: oklch(55% 0.31 320 / var(--color-alpha));
   --pink: oklch(65% 0.31 345 / var(--color-alpha));
   --rose: oklch(68% 0.3 5 / var(--color-alpha));
+}
+
+html.fullscreen {
+  @media (pointer: fine) {
+    ::-webkit-scrollbar {
+      width: 0;
+    }
+  }
 }
 
 body {
@@ -90,6 +97,11 @@ select {
   }
 }
 
+
+select::picker(select) {
+  border: 2px solid var(--background);
+}
+
 fieldset {
   border: 0;
   padding: 0;
@@ -105,7 +117,7 @@ a {
   text-underline-offset: 3px;
 
   &:hover,
-  &:focus {
+  &:focus-visible {
     text-underline-offset: 4px;
   }
 }
@@ -114,7 +126,7 @@ a {
   text-align: center;
 }
 
-.sr-only:not(:focus):not(:active),
+.sr-only:not(:focus):not(:focus-visible):not(:active),
 .cdk-visually-hidden {
   clip: rect(0 0 0 0);
   clip-path: inset(100%);
@@ -123,4 +135,12 @@ a {
   position: absolute;
   white-space: nowrap;
   width: 1px;
+}
+
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: auto;
 }

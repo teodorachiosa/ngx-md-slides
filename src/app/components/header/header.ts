@@ -103,11 +103,6 @@ export class Header implements OnInit, AfterViewInit {
   updateFullscreenStateAndUI(isFullscreen: boolean): void {
     this.state['isFullscreen'] = isFullscreen;
     this.stateService.setState(this.state);
-
-    const bodyElement = document.querySelector('body');
-    if (bodyElement) {
-      bodyElement.style.overflow = isFullscreen ? 'hidden' : 'auto';
-    }
   }
 
   switchLanguage(language: 'ro' | 'en'): void {

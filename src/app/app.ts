@@ -53,6 +53,9 @@ export class App implements AfterViewInit, OnDestroy {
 
       if (navigationEvent instanceof NavigationEnd) {
         const currentUrlNoFragment = navigationEvent.urlAfterRedirects.split('#')[0];
+        console.log(this.previousUrlNoFragment);
+        console.log(currentUrlNoFragment);
+
 
         if (
           navigationEvent.id !== 1 &&

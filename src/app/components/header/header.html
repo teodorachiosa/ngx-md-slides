@@ -58,11 +58,9 @@
     </select>
   </div>
 
-  @if(view === 'slide') {
   <button (click)="present()"
           id="present">
     <span aria-hidden="true">🖥️</span>
     {{'ui.present' | translate}} (<kbd>Ctrl</kbd> + <kbd>F5</kbd>)
   </button>
-  }
 </div>
