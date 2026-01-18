@@ -53,9 +53,6 @@ export class App implements AfterViewInit, OnDestroy {
 
       if (navigationEvent instanceof NavigationEnd) {
         const currentUrlNoFragment = navigationEvent.urlAfterRedirects.split('#')[0];
-        console.log(this.previousUrlNoFragment);
-        console.log(currentUrlNoFragment);
-
 
         if (
           navigationEvent.id !== 1 &&
@@ -69,6 +66,17 @@ export class App implements AfterViewInit, OnDestroy {
         this.translateService.onLangChange.subscribe(() => {
           this.setPageTitle();
         });
+
+        /*
+        Angular bug: https://github.com/angular/angular/issues/55383
+        Quick ugly fix: Always scroll to top
+        TODO:  Implement better manual scrolling to element and keep up to date with this bug
+        */
+        if (navigationEvent.urlAfterRedirects.includes('#')) {
+          setTimeout(() => {
+            window.scrollTo({top: 0});
+          });
+        }
 
         this.previousUrlNoFragment = currentUrlNoFragment;
       }
