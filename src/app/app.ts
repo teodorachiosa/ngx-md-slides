@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, DOCUMENT, inject, OnDestroy, Renderer2 } from '@angular/core';
+import { AfterViewInit, Component, DOCUMENT, inject, OnDestroy } from '@angular/core';
 import { Header } from './components/header/header';
 import {
   RouterLink,
@@ -18,7 +18,7 @@ import TRANSLATIONS_EN from '../../public/i18n/en.json';
 import TRANSLATIONS_RO from '../../public/i18n/ro.json';
 import { routes } from './app.routes';
 
-// const CLEAN_UP_ANNOUNCEMENT_TIMEOUT = 3000;
+const SCROLL_BY_OFFSET = 80;
 
 @Component({
   selector: 'app-root',
@@ -73,13 +73,29 @@ export class App implements AfterViewInit, OnDestroy {
         TODO:  Implement better manual scrolling to element and keep up to date with this bug
         */
         if (navigationEvent.urlAfterRedirects.includes('#')) {
-          setTimeout(() => {
-            window.scrollTo({top: 0});
-          });
+          const elementToFocus = this.document.getElementById(
+            navigationEvent.urlAfterRedirects.split('#')[1],
+          );
+          if (elementToFocus) {
+            this.scrollToElement(elementToFocus);
+          }
         }
 
         this.previousUrlNoFragment = currentUrlNoFragment;
       }
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.routerEventsSubscription.unsubscribe();
+  }
+
+  private scrollToElement(element: HTMLElement): void {
+    setTimeout(() => {
+      window.scrollBy({
+        top: element.getBoundingClientRect().top - SCROLL_BY_OFFSET,
+        behavior: 'smooth',
+      });
     });
   }
 
@@ -90,10 +106,6 @@ export class App implements AfterViewInit, OnDestroy {
   setPageTitle(): void {
     this.pageTitle = this.getPageTitle();
     this.titleService.setTitle(this.pageTitle);
-  }
-
-  ngOnDestroy(): void {
-    this.routerEventsSubscription.unsubscribe();
   }
 
   findMainHeading(): void {
@@ -110,28 +122,9 @@ export class App implements AfterViewInit, OnDestroy {
       this.mainHeading?.focus();
     });
 
-    // const slidesElement = this.document.getElementById('slides');
-    // if (!this.mainHeading) {
-    //   slidesElement?.focus();
-    // }
+    const slidesElement = this.document.getElementById('slides');
+    if (!this.mainHeading) {
+      slidesElement?.focus();
+    }
   }
-
-  // getCurrentPageTitle(): string | undefined {
-  //   // "firstChild" is needed because the current component (app component) is outside router-outlet
-  //   return this.activatedRoute.firstChild?.snapshot.title?.split('|')[0];
-  // }
-
-  // announcePageChange(): void {
-  //   const pageTitle = this.getCurrentPageTitle();
-  //   if (!pageTitle) return;
-
-  //   this.announcer.announce(`Navigated to page: ${pageTitle}`);
-  //   this.cleanUpAnnouncementsWithDelay();
-  // }
-
-  // cleanUpAnnouncementsWithDelay(): void {
-  //   setTimeout(() => {
-  //     this.announcer.clear();
-  //   }, CLEAN_UP_ANNOUNCEMENT_TIMEOUT);
-  // }
 }
