@@ -8,7 +8,7 @@ A way to make multi-lingual presentations locally, using Angular reusable compon
 
 I hate working with PowerPoint and I hate copy-pasting content between similar presentations.
 
-## Done:
+## Implemented:
 
 - [x] Add Max width / Zoom option
 - [x] Add fullscreen option (via "Present" button)
@@ -24,7 +24,7 @@ I hate working with PowerPoint and I hate copy-pasting content between similar p
 - [x] Add routing (switch between slide sets)
 - [x] Language switcher and i18n setup
 
-## To do:
+## To do (MVP):
 
 - [ ] Improve color contrast for non-text content (UI controls)
 - [ ] Handle 404 (page not found)
