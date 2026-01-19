@@ -26,23 +26,23 @@
   /**
   COLORS
   **/
-  --color-alpha: 0.2;
-  --red: oklch(60% 0.32 25 / var(--color-alpha));
-  --orange: oklch(70% 0.29 70 / var(--color-alpha));
-  --yellow: oklch(75% 0.28 95 / var(--color-alpha));
-  --lime: oklch(72% 0.27 130 / var(--color-alpha));
-  --green: oklch(65% 0.26 145 / var(--color-alpha));
-  --emerald: oklch(62% 0.25 160 / var(--color-alpha));
-  --teal: oklch(60% 0.25 175 / var(--color-alpha));
-  --cyan: oklch(65% 0.24 195 / var(--color-alpha));
-  --azure: oklch(60% 0.25 215 / var(--color-alpha));
-  --blue: oklch(55% 0.27 250 / var(--color-alpha));
-  --indigo: oklch(50% 0.28 270 / var(--color-alpha));
-  --violet: oklch(52% 0.29 290 / var(--color-alpha));
-  --purple: oklch(50% 0.3 305 / var(--color-alpha));
-  --magenta: oklch(55% 0.31 320 / var(--color-alpha));
-  --pink: oklch(65% 0.31 345 / var(--color-alpha));
-  --rose: oklch(68% 0.3 5 / var(--color-alpha));
+  --transparency: 80%;
+  --red: color-mix(in srgb, oklch(60% 0.32 25), var(--background) var(--transparency));
+  --orange: color-mix(in srgb, oklch(70% 0.29 70), var(--background) var(--transparency));
+  --yellow: color-mix(in srgb, oklch(75% 0.28 95), var(--background) var(--transparency));
+  --lime: color-mix(in srgb, oklch(72% 0.27 130), var(--background) var(--transparency));
+  --green: color-mix(in srgb, oklch(65% 0.26 145), var(--background) var(--transparency));
+  --emerald: color-mix(in srgb, oklch(62% 0.25 160), var(--background) var(--transparency));
+  --teal: color-mix(in srgb, oklch(60% 0.25 175), var(--background) var(--transparency));
+  --cyan: color-mix(in srgb, oklch(65% 0.24 195), var(--background) var(--transparency));
+  --azure: color-mix(in srgb, oklch(60% 0.25 215), var(--background) var(--transparency));
+  --blue: color-mix(in srgb, oklch(55% 0.27 250), var(--background) var(--transparency));
+  --indigo: color-mix(in srgb, oklch(50% 0.28 270), var(--background) var(--transparency));
+  --violet: color-mix(in srgb, oklch(52% 0.29 290), var(--background) var(--transparency));
+  --purple: color-mix(in srgb, oklch(50% 0.3 305), var(--background) var(--transparency));
+  --magenta: color-mix(in srgb, oklch(55% 0.31 320), var(--background) var(--transparency));
+  --pink: color-mix(in srgb, oklch(65% 0.31 345), var(--background) var(--transparency));
+  --rose: color-mix(in srgb, oklch(68% 0.3 5), var(--background) var(--transparency));
 }
 
 html.fullscreen {
