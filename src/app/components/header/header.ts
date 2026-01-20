@@ -5,6 +5,10 @@ import { State, View } from '@models/state.model';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { StateService } from '@services/state.service';
 
+const WIDTH_STEP = 10;
+const WIDTH_MIN = 10;
+const WIDTH_MAX = 100;
+
 @Component({
   selector: 'app-header, [header]',
   imports: [FormsModule, TranslatePipe],
@@ -69,14 +73,39 @@ export class Header implements OnInit, AfterViewInit {
     this.stateService.setState(this.state);
   }
 
-  updateDarkMode(event: Event): void {
-    this.state['isDarkMode'] = this.isDarkMode;
-    this.stateService.setState(this.state);
-    this.setColorScheme(Boolean(event));
+  setColorScheme(): void {
+    document.documentElement.style.setProperty('color-scheme', this.isDarkMode ? 'dark' : 'light');
   }
 
-  setColorScheme(isDarkMode: boolean): void {
-    document.documentElement.style.setProperty('color-scheme', isDarkMode ? 'dark' : 'light');
+  toggleDarkMode(): void {
+    this.isDarkMode = !this.isDarkMode;
+    this.updateDarkMode();
+  }
+
+  updateDarkMode(): void {
+    this.state['isDarkMode'] = this.isDarkMode;
+    this.stateService.setState(this.state);
+    this.setColorScheme();
+  }
+
+  isDecreaseButtonDisabled():boolean {
+    return !this.maxWidth || this.maxWidth < WIDTH_MIN + WIDTH_STEP;
+  }
+
+  isIncreaseButtonDisabled(): boolean {
+    return !this.maxWidth || this.maxWidth > WIDTH_MAX - WIDTH_STEP;
+  }
+
+  decreaseWidth(): void {
+    if (!this.maxWidth || this.isDecreaseButtonDisabled()) return;
+    this.maxWidth = this.maxWidth - WIDTH_STEP;
+    this.updateMaxWidth();
+  }
+
+  increaseWidth(): void {
+    if (!this.maxWidth || this.isIncreaseButtonDisabled()) return;
+    this.maxWidth = this.maxWidth + WIDTH_STEP;
+    this.updateMaxWidth();
   }
 
   async present(): Promise<void> {

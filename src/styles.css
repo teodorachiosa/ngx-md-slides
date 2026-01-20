@@ -7,21 +7,22 @@
   --base-font: 'Inclusive Sans', sans-serif;
 
   --spacing: 30px;
-  --foreground: light-dark(rgb(15 15 15), rgb(230 230 230));
-  --background: light-dark(rgb(230 230 230), rgb(15 15 15));
-  --surface-background: light-dark(rgb(255 255 255), rgb(30 30 30));
-  --light-grey: rgba(127 127 127 / 0.15);
-  --dark-grey: rgba(127 127 127 / 0.7);
+  --foreground: light-dark(rgb(15 15 25), rgb(230 230 240));
+  --background: light-dark(rgb(230 230 240), rgb(15 15 25));
+  --surface-background: light-dark(rgb(255 255 255), rgb(30 30 40));
+  --light-grey: rgba(117 117 127 / 0.15);
+  --dark-grey: rgba(117 117 127 / 0.7);
 
   --surface-transparency: 0.9;
   --surface-background-transparent: light-dark(
     rgba(255, 255, 255, var(--surface-transparency)),
-    rgba(50, 50, 50, var(--surface-transparency))
+    rgba(50, 50, 60, var(--surface-transparency))
   );
 
   --shadow-color: light-dark(rgba(0 0 0 / 0.2), rgb(0 0 0));
   --shadow-spread: 10px;
   --radius: 4px;
+  --min-height-controls: 36px;
 
   /**
   COLORS
@@ -64,39 +65,45 @@ body {
 }
 
 button {
+  display: inline-flex;
+  align-items: center;
   font: inherit;
-  font-weight: 600;
   background: var(--background);
   border: 2px solid var(--shadow-color);
-  padding: calc(var(--spacing) / 6);
+  padding: 0 calc(var(--spacing) / 3);
 
   &:not([disabled]):active {
-    opacity: 0.7;
+    opacity: 0.8;
     scale: 1;
+  }
+
+  [disabled] {
+    opacity: 0.5;
   }
 }
 
-input,
-select {
+input {
   font: inherit;
   background: var(--background);
 }
 
-select,
-select::picker(select) {
-  appearance: base-select;
-}
-
-select {
-  border-radius: 0;
-
-  option {
-    min-height: 30px;
-  }
-}
-
-select::picker(select) {
+[popover] {
   border: 2px solid var(--background);
+  padding: calc(var(--spacing) / 3);
+  border-radius: var(--radius);
+  margin-top: var(--radius);
+  background: var(--surface-background-transparent);
+  backdrop-filter: blur(10px);
+}
+
+@supports (position-area: end) {
+  [popover] {
+    position-area: end span-end;
+    position-try-fallbacks:
+      flip-block,
+      flip-inline,
+      flip-block flip-inline;
+  }
 }
 
 fieldset {
@@ -107,20 +114,25 @@ fieldset {
 
   legend {
     padding: 0;
+    float: left;
+    font-weight: 600;
   }
 }
 
 input:not([type='range']),
 button,
-select,
 .radio {
   border-radius: var(--radius);
 
-  &:hover {
+  &:not([disabled]):hover {
     box-shadow:
       inset 0 0 0 1px color-mix(in hsl, var(--foreground), transparent 80%),
       inset 0 0 0 50px color-mix(in hsl, var(--background), transparent 30%);
   }
+}
+
+button {
+  min-height: var(--min-height-controls);
 }
 
 a {

@@ -1,5 +1,6 @@
 {
   "ui": {
+    "settings": "\\Setări",
     "siteTitle": "\\Slide-uri Teodora Chiosa",
     "skipToPresent": "\\Sari la \"Prezintă\"",
     "skipToNavigation": "\\Sari la navigare",
@@ -9,6 +10,8 @@
     "slideView": "\\Mod slide-uri",
     "maxWidth": "\\Lățime maximă",
     "darkMode": "\\Mod întunecat",
+    "on": "\\Activat",
+    "off": "\\Dezactivat",
     "language": "\\Limba",
     "present": "\\Prezintă"
   },

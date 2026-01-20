@@ -28,7 +28,7 @@ I hate working with PowerPoint and I hate copy-pasting content between similar p
 
 - [ ] Improve color contrast for non-text content (UI controls)
 - [ ] Handle 404 (page not found)
-- [ ] Implement responsive UI
+- [ ] Implement responsive UI (Update translations, Update a11y)
 - [ ] Update the max-width / zoom feature to use minus/plus buttons instead and a select comtrol for the zoom level (similar to FireFox's PDF viewer) 
 - [ ] Move dark mode toggle to a side menu (along with other settings)
 - [ ] Add total number of pages and a "jump to page" feature

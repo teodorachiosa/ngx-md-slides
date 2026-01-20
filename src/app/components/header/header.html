@@ -1,65 +1,99 @@
 <div class="left-container">
-  <fieldset class="option">
-    <legend class="sr-only">{{'ui.contentView' | translate}}</legend>
-    <div class="radio-group">
-      <div class="radio">
-        <input type="radio"
-               id="slide-view"
-               value="slide"
-               name="view"
-               [(ngModel)]="view"
-               (ngModelChange)="updateView()" />
-        <label for="slide-view">{{'ui.slideView' | translate}}</label>
+  <button id="dialog-title"
+          class="option settings"
+          commandfor="settings-menu"
+          command="toggle-popover">{{'ui.settings' | translate}}</button>
+
+  <div popover
+       role="dialog"
+       aria-labelledby="dialog-title"
+       id="settings-menu">
+    <fieldset class="option">
+      <legend>{{'ui.contentView' | translate}}</legend>
+      <div class="radio-group">
+        <div class="radio">
+          <input type="radio"
+                 id="slide-view"
+                 value="slide"
+                 name="view"
+                 [(ngModel)]="view"
+                 (ngModelChange)="updateView()" />
+          <label for="slide-view">{{'ui.slideView' | translate}}</label>
+        </div>
+        <div class="radio">
+          <input type="radio"
+                 id="web-view"
+                 value="web"
+                 name="view"
+                 [(ngModel)]="view"
+                 (ngModelChange)="updateView()" />
+          <label for="web-view">{{'ui.webView' | translate}}</label>
+        </div>
       </div>
-      <div class="radio">
-        <input type="radio"
-               id="web-view"
-               value="web"
-               name="view"
-               [(ngModel)]="view"
-               (ngModelChange)="updateView()" />
-        <label for="web-view">{{'ui.webView' | translate}}</label>
-      </div>
+    </fieldset>
+
+    <div class="option">
+      <fieldset class="option">
+        <legend>{{'ui.language' | translate}}</legend>
+        <div class="radio-group">
+          <div class="radio">
+            <input type="radio"
+                   id="en"
+                   value="en"
+                   name="language"
+                   [(ngModel)]="language"
+                   (ngModelChange)="switchLanguage($event)" />
+            <label for="en"
+                   lang="en">English</label>
+          </div>
+          <div class="radio">
+            <input type="radio"
+                   id="ro"
+                   value="ro"
+                   name="language"
+                   [(ngModel)]="language"
+                   (ngModelChange)="switchLanguage($event)" />
+            <label for="ro"
+                   lang="ro">Română</label>
+          </div>
+        </div>
+      </fieldset>
     </div>
-  </fieldset>
 
-  <div class="option margin-left margin-right">
-    <label for="max-width">{{'ui.maxWidth' | translate}}</label>
-    <input [(ngModel)]="maxWidth"
-           (ngModelChange)="updateMaxWidth()"
-           id="max-width"
-           type="range"
-           min="10"
-           max="100" />
-    <span>{{maxWidth}}%</span>
-  </div>
+    <div class="option">
+      <span class="span-label"
+            id="max-width-label">{{'ui.maxWidth' | translate}}</span>
+      <span role="group"
+            class="max-width-controls"
+            aria-labelledby="max-width-label">
+        <button (click)="decreaseWidth()"
+                [disabled]="isDecreaseButtonDisabled()">
+          <span class="sr-only">Decrease maximum width</span>
+          <span aria-hidden="true">-</span>
+        </button>
+        <button (click)="increaseWidth()"
+                [disabled]="isIncreaseButtonDisabled()">
+          <span class="sr-only">Increase maximum width</span>
+          <span aria-hidden="true">+</span>
+        </button>
+        <output class="margin-left">{{maxWidth}}%</output>
+      </span>
+    </div>
 
-  <div class="option">
-    <label for="dark-mode">{{'ui.darkMode' | translate}}</label>
-    <input [(ngModel)]="isDarkMode"
-           (ngModelChange)="updateDarkMode($event)"
-           id="dark-mode"
-           type="checkbox" />
+    <div class="option">
+      <label for="dark-mode">{{'ui.darkMode' | translate}}</label>
+      <button id="dark-mode"
+              [attr.aria-pressed]="isDarkMode"
+              (click)="toggleDarkMode()">{{isDarkMode ? ('ui.on' | translate) : ('ui.off' | translate)}}</button>
+    </div>
   </div>
 </div>
 
 <div class="right-container">
-  <div class="option">
-    <label for="language">{{'ui.language' | translate}}</label>
-    <select name="language"
-            id="language"
-            [ngModel]="language"
-            (ngModelChange)="switchLanguage($event)">
-      <option value="en"
-              lang="en">English</option>
-      <option value="ro"
-              lang="ro">Română</option>
-    </select>
-  </div>
-
   <button (click)="present()"
-          id="present">
+          id="present"
+          class="option">
     <span aria-hidden="true">🖥️</span>
-    {{'ui.present' | translate}} (<kbd>Ctrl</kbd> + <kbd>F5</kbd>)
+    {{'ui.present' | translate}} <span class="kbd-shortcut">(<kbd>Ctrl</kbd> + <kbd>F5</kbd>)</span>
   </button>
 </div>

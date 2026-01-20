@@ -1,5 +1,6 @@
 {
   "ui": {
+    "settings": "\\Settings",
     "siteTitle": "\\Teodora Chiosa Slides",
     "skipToPresent": "\\Skip to \"Present\"",
     "skipToNavigation": "\\Skip to navigation",
@@ -7,8 +8,10 @@
     "contentView": "\\Content view",
     "webView": "\\Card view",
     "slideView": "\\Slide view",
-    "maxWidth": "\\Max width",
+    "maxWidth": "\\Maximum width",
     "darkMode": "\\Dark mode",
+    "on": "\\On",
+    "off": "\\Off",
     "language": "\\Language",
     "present": "\\Present"
   },
