@@ -10,6 +10,8 @@
     "webView": "\\Carduri",
     "slideView": "\\Slide-uri",
     "maxWidth": "\\Lățime maximă",
+    "decreaseMaxWidth": "\\Micșorează lățimea maximă",
+    "increaseMaxWidth": "\\Mărește lățimea maximă",
     "darkMode": "\\Mod întunecat",
     "on": "\\Activat",
     "off": "\\Dezactivat",

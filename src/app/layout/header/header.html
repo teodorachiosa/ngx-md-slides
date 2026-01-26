@@ -106,13 +106,13 @@
         <button (click)="decreaseWidth()"
                 [disabled]="isDecreaseButtonDisabled()"
                 class="plus-minus-button">
-          <span class="sr-only">Decrease maximum width</span>
+          <span class="sr-only">{{ 'ui.decreaseMaxWidth' | translate}}</span>
           <span aria-hidden="true">-</span>
         </button>
         <button (click)="increaseWidth()"
                 [disabled]="isIncreaseButtonDisabled()"
                 class="plus-minus-button">
-          <span class="sr-only">Increase maximum width</span>
+          <span class="sr-only">{{ 'ui.increaseMaxWidth' | translate}}</span>
           <span aria-hidden="true">+</span>
         </button>
         <output class="margin-left">{{maxWidth}}%</output>
@@ -135,6 +135,9 @@
           id="present"
           class="header-option">
     <app-icon-presentation class="icon"></app-icon-presentation>
-    {{'ui.present' | translate}} <span class="kbd-shortcut">(<kbd>Ctrl</kbd> + <kbd>F5</kbd>)</span>
+    {{'ui.present' | translate}}
+    <span aria-hidden="true"
+          class="kbd-shortcut">(<kbd>Ctrl</kbd> + <kbd>F5</kbd>)
+    </span>
   </button>
 </div>
