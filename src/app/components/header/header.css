@@ -49,7 +49,7 @@
     }
 
     ::ng-deep svg {
-      --svg-size: 1.2rem;
+      --svg-size: 1rem;
       height: var(--svg-size);
       width: var(--svg-size);
     }
