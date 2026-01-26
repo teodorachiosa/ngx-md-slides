@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: var(--spacing);
+  gap: calc(var(--spacing) / 3);
   position: sticky;
   z-index: 2;
   top: 0;
