@@ -1,6 +1,6 @@
 # ngx-md-slides (🚨 work in progress)
 
-[Live demo](https://teo-ng-slides.vercel.app/)
+[Live demo](https://ngx-md-slides.vercel.app/)
 
 A way to make multi-lingual presentations locally, using Angular reusable components.
 
