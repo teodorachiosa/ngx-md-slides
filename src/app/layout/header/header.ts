@@ -3,13 +3,13 @@ import { FormsModule } from '@angular/forms';
 import { Router, RouterLink, RouterLinkActive, Routes } from '@angular/router';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 
-import { State, View } from '@models/state.model';
-import { StateService } from '@services/state.service';
-import { ContentLanguage } from '@models/content-language.model';
+import { State, View } from '@shared/models/state.model';
+import { ContentLanguage } from '@shared/models/content-language.model';
+import { StateService } from '@shared/services/state.service';
+import { IconMenu } from '@shared/components/icons/icon-menu/icon-menu';
+import { IconSettings } from '@shared/components/icons/icon-settings/icon-settings';
+import { IconPresentation } from '@shared/components/icons/icon-presentation/icon-presentation';
 import { routes } from 'app/app.routes';
-import { IconMenu } from '@shared/icons/icon-menu/icon-menu';
-import { IconSettings } from '@shared/icons/icon-settings/icon-settings';
-import { IconPresentation } from '@shared/icons/icon-presentation/icon-presentation';
 
 const WIDTH_STEP = 10;
 const WIDTH_MIN = 10;
@@ -17,7 +17,15 @@ const WIDTH_MAX = 100;
 
 @Component({
   selector: 'app-header, [header]',
-  imports: [FormsModule, TranslatePipe, RouterLink, RouterLinkActive, IconMenu, IconSettings, IconPresentation],
+  imports: [
+    FormsModule,
+    TranslatePipe,
+    RouterLink,
+    RouterLinkActive,
+    IconMenu,
+    IconSettings,
+    IconPresentation,
+  ],
   templateUrl: './header.html',
   styleUrl: './header.css',
 })
@@ -31,7 +39,6 @@ export class Header implements OnInit, AfterViewInit {
   maxWidth?: number;
   isDarkMode?: boolean;
   language: ContentLanguage = 'en';
-  isMenuOpen?: boolean;
   rootElement?: HTMLElement | null;
   routes: Routes;
 
@@ -51,7 +58,6 @@ export class Header implements OnInit, AfterViewInit {
     this.view = this.stateService.getState().view;
     this.maxWidth = this.stateService.getState().maxWidth;
     this.isDarkMode = this.stateService.getState().isDarkMode;
-    this.isMenuOpen = this.stateService.getState().isMenuOpen;
 
     if (typeof window !== 'undefined') {
       this.isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;

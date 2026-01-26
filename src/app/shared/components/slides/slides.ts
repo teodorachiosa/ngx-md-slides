@@ -8,9 +8,8 @@ import {
   DOCUMENT,
   Renderer2,
 } from '@angular/core';
-import { State } from '@models/state.model';
-
-import { StateService } from '@services/state.service';
+import { State } from '@shared/models/state.model';
+import { StateService } from '@shared/services/state.service';
 
 @Component({
   selector: 'app-slides',
@@ -19,13 +18,13 @@ import { StateService } from '@services/state.service';
   styleUrl: './slides.css',
 })
 export class Slides implements AfterViewInit {
-  state: State = {};
-  currentSlide: number = 0;
   stateService = inject(StateService);
-  allSlides?: NodeListOf<HTMLElement>;
   elementRef = inject(ElementRef);
   renderer = inject(Renderer2);
   document = inject(DOCUMENT);
+  allSlides?: NodeListOf<HTMLElement>;
+  state: State = {};
+  currentSlide: number = 0;
 
   ngAfterViewInit(): void {
     if (typeof this.document !== 'undefined') {

@@ -16,12 +16,10 @@
     "module": "preserve",
     "baseUrl": "./src",
     "paths": {
-      "@components/*": ["app/components/*"],
-      "@services/*": ["app/services/*"],
-      "@models/*": ["app/models/*"],
+      "@layout/*": ["app/layout/*"],
       "@shared/*": ["app/shared/*"],
-      "@slide-sets/*": ["app/slide-sets/*"],
-      "@slide-groups/*": ["app/slide-groups/*"]
+      "@slides/*": ["app/slides/*"],
+      "@templates/*": ["app/templates/*"]
     }
   },
   "angularCompilerOptions": {

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
 
-import { Markdown } from '@components/markdown/markdown';
-import { Slide } from '@components/slide/slide';
-import { Slides } from '@components/slides/slides';
+import { Markdown } from '@shared/components/markdown/markdown';
+import { Slide } from '@shared/components/slide/slide';
+import { Slides } from '@shared/components/slides/slides';
 
 @Component({
   selector: 'app-slide-set2',

@@ -1,6 +1,6 @@
 import { Injectable, signal, WritableSignal } from '@angular/core';
 
-import { State } from '@models/state.model';
+import { State } from '@shared/models/state.model';
 
 @Injectable({
   providedIn: 'root',
@@ -12,8 +12,7 @@ export class StateService {
     maxWidth: 100,
     isDarkMode: true,
     isFullscreen: false,
-    currentSlide: 0,
-    isMenuOpen: false,
+    currentSlide: 0
   };
 
   constructor() {

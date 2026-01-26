@@ -1,8 +1,8 @@
 import { Component, HostBinding } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
 
-import { Slide } from '@components/slide/slide';
-import { Markdown } from '@components/markdown/markdown';
+import { Slide } from '@shared/components/slide/slide';
+import { Markdown } from '@shared/components/markdown/markdown';
 
 @Component({
   selector: 'app-slide-group',

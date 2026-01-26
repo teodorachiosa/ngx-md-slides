@@ -13,8 +13,8 @@ import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 
-import { StateService } from '@services/state.service';
-import { Header } from '@components/header/header';
+import { StateService } from '@shared/services/state.service';
+import { Header } from '@layout/header/header';
 import TRANSLATIONS_EN from '../../public/i18n/en.json';
 import TRANSLATIONS_RO from '../../public/i18n/ro.json';
 
@@ -39,21 +39,16 @@ export class App implements AfterViewInit, OnDestroy {
   mainHeading?: HTMLHeadingElement;
   previousUrlNoFragment?: string;
   pageTitle = '';
-  isMenuOpen?: boolean;
 
   constructor() {
     this.translateService.setTranslation('en', TRANSLATIONS_EN);
     this.translateService.setTranslation('ro', TRANSLATIONS_RO);
     this.translateService.setFallbackLang('en');
-
-    effect(() => {
-      this.isMenuOpen = this.stateService.getState().isMenuOpen;
-    });
   }
 
   ngAfterViewInit(): void {
     this.routerEventsSubscription = this.router.events.subscribe((navigationEvent) => {
-      this.findMainHeading();
+      this.makeMainHeadingFocusable();
 
       if (navigationEvent instanceof NavigationEnd) {
         this.setPageTitle();
@@ -86,7 +81,7 @@ export class App implements AfterViewInit, OnDestroy {
     this.titleService.setTitle(this.pageTitle);
   }
 
-  findMainHeading(): void {
+  makeMainHeadingFocusable(): void {
     this.mainHeading = undefined;
     this.mainHeading = this.document.getElementsByTagName('h1')[0];
     this.mainHeading?.setAttribute('tabindex', '-1');

@@ -6,5 +6,4 @@ export type State = {
   isDarkMode?: boolean;
   isFullscreen?: boolean;
   currentSlide?: number;
-  isMenuOpen?: boolean;
 };

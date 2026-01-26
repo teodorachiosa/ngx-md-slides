@@ -1,6 +1,5 @@
 import { Component, HostBinding, inject, Input } from '@angular/core';
-
-import { StateService } from '@services/state.service';
+import { StateService } from '@shared/services/state.service';
 
 @Component({
   selector: 'app-slide',
