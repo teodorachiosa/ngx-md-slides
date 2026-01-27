@@ -28,13 +28,14 @@ I hate working with PowerPoint and I hate copy-pasting content between similar p
 - [x] Move dark mode toggle to a side menu (along with other settings)
 - [x] Update the max-width / zoom feature to use minus/plus buttons instead and a select control for the zoom level (similar to FireFox's PDF viewer) 
 
-## To do (MVP):
+## To do:
 
 - [ ] Handle 404 (page not found)
 - [ ] Add total number of pages and a "jump to page" feature
 - [ ] Save settings to cookies
 - [ ] Perform accessibility checks (WCAG 2.2 minimum) and add an accessibility statement
-- [ ] Save presentation as PDF (?)
+- [ ] Save presentation as PDF
+- [ ] Implement non-hardcoded languages (and use a `select` element)
 
 
 ## How to run
