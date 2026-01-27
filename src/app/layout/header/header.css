@@ -200,3 +200,9 @@
     display: none;
   }
 }
+
+@media screen and (height <= 450px) {
+  :host {
+    position: static;
+  }
+}
