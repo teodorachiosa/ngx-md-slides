@@ -13,8 +13,8 @@
     width: 100%;
     min-width: min-content;
     margin: 0 auto;
-    gap: var(--slides-spacing);
-    padding: var(--slides-spacing);
+    gap: min(5vw, var(--slides-spacing));
+    padding: min(5vw, var(--slides-spacing));
 
     & > ::ng-deep :not(app-slide) {
       display: contents;
