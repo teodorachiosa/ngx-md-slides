@@ -1,157 +1,167 @@
+@layer base, highlight;
+
 @import url('https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital,wght@0,300..700;1,300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap');
+@import url('../node_modules/highlight.js//styles/a11y-dark.min.css') layer(highlight);
 
-:root {
-  color-scheme: light dark;
-  accent-color: light-dark(black, white);
+@layer base {
+  :root {
+    color-scheme: light dark;
+    accent-color: light-dark(black, white);
+    --text: light-dark(black, white);
+    --inverted-text: light-dark(white, black);
 
-  --base-font: 'Inclusive Sans', sans-serif;
+    --base-font: 'Inclusive Sans', sans-serif;
+    --mono-font: 'Fira Mono', monospace;
 
-  --spacing: 30px;
-  --foreground: light-dark(rgb(15 15 25), rgb(230 230 240));
-  --background: light-dark(rgb(230 230 240), rgb(15 15 25));
-  --surface-background: light-dark(rgb(255 255 255), rgb(30 30 40));
-  --light-grey: rgba(117 117 127 / 0.15);
-  --dark-grey: rgba(117 117 127 / 0.7);
+    --spacing: 30px;
+    --foreground: light-dark(rgb(15 15 25), rgb(230 230 240));
+    --background: light-dark(rgb(230 230 240), rgb(15 15 25));
+    --surface-background: light-dark(rgb(255 255 255), rgb(30 30 40));
+    --light-grey: rgba(117 117 127 / 0.15);
+    --dark-grey: rgba(117 117 127 / 0.7);
 
-  --surface-transparency: 0.9;
-  --surface-background-transparent: light-dark(
-    rgba(255, 255, 255, var(--surface-transparency)),
-    rgba(50, 50, 60, var(--surface-transparency))
-  );
+    --surface-transparency: 0.9;
+    --surface-background-transparent: light-dark(
+      rgba(255, 255, 255, var(--surface-transparency)),
+      rgba(50, 50, 60, var(--surface-transparency))
+    );
 
-  --shadow-color: light-dark(rgba(0 0 0 / 0.2), rgb(0 0 0));
-  --shadow-spread: 10px;
-  --radius: 4px;
-  --min-height-controls: 36px;
-  --header-min-height: 52px;
+    --shadow-color: light-dark(rgba(0 0 0 / 0.2), rgb(0 0 0));
+    --shadow-spread: 10px;
+    --radius: 4px;
+    --min-height-controls: 36px;
+    --header-min-height: 52px;
 
-  /**
+    /**
   COLORS
   **/
-  --transparency: 80%;
-  --red: color-mix(in srgb, oklch(60% 0.32 25), var(--background) var(--transparency));
-  --orange: color-mix(in srgb, oklch(70% 0.29 70), var(--background) var(--transparency));
-  --yellow: color-mix(in srgb, oklch(75% 0.28 95), var(--background) var(--transparency));
-  --lime: color-mix(in srgb, oklch(72% 0.27 130), var(--background) var(--transparency));
-  --green: color-mix(in srgb, oklch(65% 0.26 145), var(--background) var(--transparency));
-  --emerald: color-mix(in srgb, oklch(62% 0.25 160), var(--background) var(--transparency));
-  --teal: color-mix(in srgb, oklch(60% 0.25 175), var(--background) var(--transparency));
-  --cyan: color-mix(in srgb, oklch(65% 0.24 195), var(--background) var(--transparency));
-  --azure: color-mix(in srgb, oklch(60% 0.25 215), var(--background) var(--transparency));
-  --blue: color-mix(in srgb, oklch(55% 0.27 250), var(--background) var(--transparency));
-  --indigo: color-mix(in srgb, oklch(50% 0.28 270), var(--background) var(--transparency));
-  --violet: color-mix(in srgb, oklch(52% 0.29 290), var(--background) var(--transparency));
-  --purple: color-mix(in srgb, oklch(50% 0.3 305), var(--background) var(--transparency));
-  --magenta: color-mix(in srgb, oklch(55% 0.31 320), var(--background) var(--transparency));
-  --pink: color-mix(in srgb, oklch(65% 0.31 345), var(--background) var(--transparency));
-  --rose: color-mix(in srgb, oklch(68% 0.3 5), var(--background) var(--transparency));
-}
+    --transparency: 80%;
+    --red: color-mix(in srgb, oklch(60% 0.32 25), var(--background) var(--transparency));
+    --orange: color-mix(in srgb, oklch(70% 0.29 70), var(--background) var(--transparency));
+    --yellow: color-mix(in srgb, oklch(75% 0.28 95), var(--background) var(--transparency));
+    --lime: color-mix(in srgb, oklch(72% 0.27 130), var(--background) var(--transparency));
+    --green: color-mix(in srgb, oklch(65% 0.26 145), var(--background) var(--transparency));
+    --emerald: color-mix(in srgb, oklch(62% 0.25 160), var(--background) var(--transparency));
+    --teal: color-mix(in srgb, oklch(60% 0.25 175), var(--background) var(--transparency));
+    --cyan: color-mix(in srgb, oklch(65% 0.24 195), var(--background) var(--transparency));
+    --azure: color-mix(in srgb, oklch(60% 0.25 215), var(--background) var(--transparency));
+    --blue: color-mix(in srgb, oklch(55% 0.27 250), var(--background) var(--transparency));
+    --indigo: color-mix(in srgb, oklch(50% 0.28 270), var(--background) var(--transparency));
+    --violet: color-mix(in srgb, oklch(52% 0.29 290), var(--background) var(--transparency));
+    --purple: color-mix(in srgb, oklch(50% 0.3 305), var(--background) var(--transparency));
+    --magenta: color-mix(in srgb, oklch(55% 0.31 320), var(--background) var(--transparency));
+    --pink: color-mix(in srgb, oklch(65% 0.31 345), var(--background) var(--transparency));
+    --rose: color-mix(in srgb, oklch(68% 0.3 5), var(--background) var(--transparency));
+  }
 
-html.fullscreen {
-  @media (pointer: fine) {
-    ::-webkit-scrollbar {
-      width: 0;
+  html.fullscreen {
+    @media (pointer: fine) {
+      ::-webkit-scrollbar {
+        width: 0;
+      }
     }
   }
-}
 
-body {
-  background: var(--background);
-  margin: 0;
-  font-family: var(--base-font);
-}
-
-* {
-  box-sizing: border-box;
-  letter-spacing: 0.5px;
-}
-
-button {
-  display: inline-flex;
-  align-items: center;
-  font: inherit;
-  background: var(--background);
-  border: 2px solid var(--shadow-color);
-  padding: 0 calc(var(--spacing) / 3);
-
-  &:not([disabled]):active {
-    opacity: 0.8;
-    scale: 1;
+  body {
+    background: var(--background);
+    margin: 0;
+    font-family: var(--base-font);
   }
 
-  [disabled] {
-    opacity: 0.5;
+  * {
+    box-sizing: border-box;
+    letter-spacing: 0.5px;
   }
-}
 
-input {
-  font: inherit;
-  background: var(--background);
-}
+  button {
+    display: inline-flex;
+    align-items: center;
+    font: inherit;
+    background: var(--background);
+    border: 2px solid var(--shadow-color);
+    padding: 0 calc(var(--spacing) / 3);
 
-[popover] {
-  border: 2px solid var(--background);
-  padding: calc(var(--spacing) / 3);
-  border-radius: var(--radius);
-  margin-top: 8px;
-  background: var(--surface-background-transparent);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 var(--shadow-spread) 0 color-mix(in srgb, var(--shadow-color), transparent 60%);
-  position-area: end span-end;
-  position-try-fallbacks:
-    flip-block,
-    flip-inline,
-    flip-block flip-inline;
-}
+    &:not([disabled]):active {
+      opacity: 0.8;
+      scale: 1;
+    }
 
-input,
-button,
-.radio {
-  border-radius: var(--radius);
-
-  &:not([disabled]):hover {
-    box-shadow:
-      inset 0 0 0 1px light-dark(rgba(255 255 255 / 0.7), color-mix(in hsl, var(--foreground), transparent 80%)),
-      inset 0 0 0 50px
-        light-dark(
-          color-mix(in hsl, var(--foreground), transparent 95%),
-          color-mix(in hsl, var(--background), transparent 30%)
-        );
+    [disabled] {
+      opacity: 0.5;
+    }
   }
-}
 
-button {
-  min-height: var(--min-height-controls);
-}
-
-a {
-  text-underline-offset: 3px;
-
-  &:hover,
-  &:focus-visible {
-    text-underline-offset: 4px;
+  input {
+    font: inherit;
+    background: var(--background);
   }
-}
 
-.center {
-  text-align: center;
-}
+  [popover] {
+    border: 2px solid var(--background);
+    padding: calc(var(--spacing) / 3);
+    border-radius: var(--radius);
+    margin-top: 8px;
+    background: var(--surface-background-transparent);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 var(--shadow-spread) 0 color-mix(in srgb, var(--shadow-color), transparent 60%);
+    position-area: end span-end;
+    position-try-fallbacks:
+      flip-block,
+      flip-inline,
+      flip-block flip-inline;
+  }
 
-.sr-only:not(:focus):not(:focus-visible):not(:active),
-.cdk-visually-hidden {
-  clip: rect(0 0 0 0);
-  clip-path: inset(100%);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
+  input,
+  button,
+  .radio {
+    border-radius: var(--radius);
 
-:focus {
-  outline: none;
-}
+    &:not([disabled]):hover {
+      box-shadow:
+        inset 0 0 0 1px
+          light-dark(rgba(255 255 255 / 0.7), color-mix(in hsl, var(--foreground), transparent 80%)),
+        inset 0 0 0 50px
+          light-dark(
+            color-mix(in hsl, var(--foreground), transparent 95%),
+            color-mix(in hsl, var(--background), transparent 30%)
+          );
+    }
+  }
 
-:focus-visible {
-  outline: auto;
+  button {
+    min-height: var(--min-height-controls);
+  }
+
+  a {
+    text-underline-offset: 3px;
+
+    &:hover,
+    &:focus-visible {
+      text-underline-offset: 4px;
+    }
+  }
+
+  .center {
+    text-align: center;
+  }
+
+  .sr-only:not(:focus):not(:focus-visible):not(:active),
+  .cdk-visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(100%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+
+  :focus {
+    outline: none;
+  }
+
+  :focus-visible {
+    outline: auto;
+  }
 }

@@ -4,7 +4,9 @@
 
 import { Injectable } from '@angular/core';
 import { TranslateCompiler } from '@ngx-translate/core';
-import { marked } from 'marked';
+import { Marked } from 'marked';
+import { markedHighlight } from 'marked-highlight';
+import hljs from 'highlight.js';
 
 @Injectable()
 export class MarkdownCompiler extends TranslateCompiler {
@@ -13,7 +15,22 @@ export class MarkdownCompiler extends TranslateCompiler {
       return value;
     }
 
-    return value.startsWith('\\') ? value.split('\\')[1] : marked.parse(value) as string
+    switch (true) {
+      case value.startsWith('\\'):
+        return value.split('\\')[1];
+      default: {
+        const markedHighlighted = new Marked(
+          markedHighlight({
+            emptyLangClass: 'hljs',
+            langPrefix: 'hljs language-',
+            highlight(code) {
+              return hljs.highlightAuto(code).value;
+            },
+          }),
+        );
+        return markedHighlighted.parse(value) as string;
+      }
+    }
   }
 
   compileTranslations(translations: any, lang: string): any {
