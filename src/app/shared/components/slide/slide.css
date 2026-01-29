@@ -128,8 +128,8 @@
   :host {
     font-size: 3cqi;
 
-    /* aspect-ratio: 16 / 9; */
-    /* overflow-x: visible;
-    overflow-y: clip; */
+    aspect-ratio: 16 / 9;
+    overflow-x: visible;
+    overflow-y: clip;
   }
 }
