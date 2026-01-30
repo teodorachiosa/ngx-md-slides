@@ -170,5 +170,6 @@
 
   :focus-visible {
     outline: auto;
+    background-color: yellow;
   }
 }
