@@ -32,7 +32,8 @@ Using this approach, you can create groups of slides that can be reused in multi
 
 ## To do:
 
-- [ ] Use TypeScript (and separate Markdown files?) for translations instead of JSON.
+- [ ] Use TypeScript (and separate Markdown files?) for translations instead of JSON
+- [ ] Add a footer section (for credits, links)
 - [ ] Fix Vercel 404 error
 - [ ] Add total number of pages and a "jump to page" feature
 - [ ] Save settings to cookies
