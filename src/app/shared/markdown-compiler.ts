@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 import { TranslateCompiler } from '@ngx-translate/core';
 import { Marked } from 'marked';
 import { markedHighlight } from 'marked-highlight';
-import hljs from 'highlight.js';
+import hljs from 'highlight.js/lib/common';
 
 @Injectable()
 export class MarkdownCompiler extends TranslateCompiler {
@@ -23,8 +23,8 @@ export class MarkdownCompiler extends TranslateCompiler {
           markedHighlight({
             emptyLangClass: 'hljs',
             langPrefix: 'hljs language-',
-            highlight(code) {
-              return hljs.highlightAuto(code).value;
+            highlight(code, lang) {
+              return hljs.highlight(code, { language: lang }).value;
             },
           }),
         );

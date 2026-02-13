@@ -1,6 +1,6 @@
 :host {
   --slide-background: var(--surface-background);
-  --slide-text: color-mix(in hsl, var(--slide-background), var(--text) 80%);
+  --slide-text: color-mix(in hsl, var(--slide-background), var(--text) 85%);
   --slides-link-hover: color-mix(in hsl, var(--slide-background), var(--text) 70%);
   --slides-borders: color-mix(in hsl, var(--slide-background), var(--text) 30%);
   --slides-table-headers: color-mix(in hsl, var(--slide-background), var(--text) 12%);
@@ -23,7 +23,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 0.4em;
+    font-size: 0.5em;
     padding: 0 0.6em;
     translate: -100%;
     z-index: -1;

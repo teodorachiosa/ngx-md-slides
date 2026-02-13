@@ -26,7 +26,6 @@
     </nav>
   </dialog>
 
-
   <button id="dialog-title"
           class="header-option settings"
           commandfor="settings-menu"
@@ -41,7 +40,8 @@
           aria-describedby="disclaimer-description"
           id="settings-menu">
     <div class="disclaimer" id="disclaimer-description">
-      <strong>Note:</strong> Changes apply instantly.
+      <strong>{{'ui.noteTitle' | translate}}:</strong>
+      {{'ui.noteText' | translate}}.
     </div>
     <div role="group"
          class="option">
@@ -56,7 +56,7 @@
                  value="slide"
                  name="view"
                  [(ngModel)]="view"
-                 (ngModelChange)="updateView()" />
+                 (ngModelChange)="updateView()"/>
           <label for="slide-view">{{'ui.slideView' | translate}}</label>
         </div>
         <div class="radio">
@@ -65,7 +65,7 @@
                  value="web"
                  name="view"
                  [(ngModel)]="view"
-                 (ngModelChange)="updateView()" />
+                 (ngModelChange)="updateView()"/>
           <label for="web-view">{{'ui.webView' | translate}}</label>
         </div>
       </div>
@@ -84,7 +84,7 @@
                  value="en"
                  name="language"
                  [(ngModel)]="language"
-                 (ngModelChange)="switchLanguage($event)" />
+                 (ngModelChange)="switchLanguage($event)"/>
           <label for="en"
                  lang="en">English</label>
         </div>
@@ -94,7 +94,7 @@
                  value="ro"
                  name="language"
                  [(ngModel)]="language"
-                 (ngModelChange)="switchLanguage($event)" />
+                 (ngModelChange)="switchLanguage($event)"/>
           <label for="ro"
                  lang="ro">Română</label>
         </div>

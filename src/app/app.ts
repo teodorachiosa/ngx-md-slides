@@ -15,8 +15,6 @@ import { Subscription } from 'rxjs';
 
 import { StateService } from '@shared/services/state.service';
 import { Header } from '@layout/header/header';
-import TRANSLATIONS_EN from '../../public/i18n/en.json';
-import TRANSLATIONS_RO from '../../public/i18n/ro.json';
 
 const ANCHOR_SCROLL_OFFSET = 200;
 
@@ -41,8 +39,6 @@ export class App implements AfterViewInit, OnDestroy {
   pageTitle = '';
 
   constructor() {
-    this.translateService.setTranslation('en', TRANSLATIONS_EN);
-    this.translateService.setTranslation('ro', TRANSLATIONS_RO);
     this.translateService.setFallbackLang('en');
   }
 

@@ -58,7 +58,7 @@
   .disclaimer {
     grid-column: 1 / -1;
     padding: calc(var(--spacing) / 3);
-    border-bottom: 2px solid var(--light-grey);
+    border-bottom: 2px solid var(--dark-grey);
   }
 
   .option {
