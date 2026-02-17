@@ -8,17 +8,17 @@ import { SafeHtmlPipe } from '@shared/pipes/safe-html.pipe';
 })
 export class Markdown implements AfterViewInit {
   @Input() data: string = '';
-  @Input() components!: Type<unknown>[];
+  @Input() components: Type<unknown>[] = [];
   @ViewChild('markdownContainer', { read: ElementRef }) markdownContainer!: ElementRef;
 
   ngAfterViewInit(): void {
     if (this.markdownContainer) {
 
-      const requiredAngularComponents: NodeList =
+      const elementsToReplaceWithComponents: NodeList =
         this.markdownContainer.nativeElement.querySelectorAll('.angular-component');
 
-      if (requiredAngularComponents.length) {
-        console.log(requiredAngularComponents);
+      if (elementsToReplaceWithComponents.length) {
+        console.log(elementsToReplaceWithComponents);
       }
 
       if (this.components && this.components.length) {
