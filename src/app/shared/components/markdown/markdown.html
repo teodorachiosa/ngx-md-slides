@@ -1,1 +1,1 @@
-<div [innerHTML]="data"></div>
+<div #markdownContainer [innerHTML]="data | safeHtml"></div>

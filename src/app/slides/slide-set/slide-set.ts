@@ -7,10 +7,14 @@ import { Slides } from '@shared/components/slides/slides';
 import { Markdown } from '@shared/components/markdown/markdown';
 import { SlideGroup } from '@templates/slide-group/slide-group';
 
+import { IconMenu } from '@shared/components/icons/icon-menu/icon-menu';
+
 @Component({
   selector: 'app-slide-set',
-  imports: [SlideGroup, Slides, Slide, TranslatePipe, Markdown],
+  imports: [SlideGroup, Slides, Slide, TranslatePipe, Markdown, IconMenu],
   templateUrl: './slide-set.html',
   styleUrl: './slide-set.css',
 })
-export class SlideSet {}
+export class SlideSet {
+  components = [IconMenu];
+}

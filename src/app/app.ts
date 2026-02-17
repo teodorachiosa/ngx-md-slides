@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, DOCUMENT, effect, inject, OnDestroy } from '@angular/core';
+import { AfterViewInit, Component, DOCUMENT, inject, OnDestroy } from '@angular/core';
 import { ViewportScroller } from '@angular/common';
 import {
   RouterLink,
@@ -9,7 +9,6 @@ import {
   Scroll,
 } from '@angular/router';
 import { Title } from '@angular/platform-browser';
-import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 
@@ -27,7 +26,6 @@ const ANCHOR_SCROLL_OFFSET = 200;
 export class App implements AfterViewInit, OnDestroy {
   router = inject(Router);
   activatedRoute = inject(ActivatedRoute);
-  announcer = inject(LiveAnnouncer);
   document = inject(DOCUMENT);
   translateService = inject(TranslateService);
   stateService = inject(StateService);

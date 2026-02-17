@@ -7,6 +7,9 @@ const enSlideSetTranslations = {
 # My awesome presentation
 
 (made with <span aria-hidden="true">🩷</span><span class="sr-only">love</span>)
+
+<!--IconMenu-->
+
     `,
     slide2: md`
 ## Some awesome content goes here
