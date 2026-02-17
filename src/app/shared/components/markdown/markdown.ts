@@ -17,11 +17,11 @@ export class Markdown implements AfterViewInit {
       const elementsToReplaceWithComponents: NodeList =
         this.markdownContainer.nativeElement.querySelectorAll('.angular-component');
 
-      if (elementsToReplaceWithComponents.length) {
+      if (elementsToReplaceWithComponents?.length) {
         console.log(elementsToReplaceWithComponents);
       }
 
-      if (this.components && this.components.length) {
+      if (this.components?.length) {
         console.log(this.components);
       }
     }
