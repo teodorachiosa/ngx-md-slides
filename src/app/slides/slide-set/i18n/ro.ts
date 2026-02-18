@@ -1,12 +1,18 @@
+import { Translation } from '@shared/models/translation.model';
+
 const md = String.raw;
 
-const roSlideSetTranslations = {
+const roSlideSetTranslations: Translation = {
   title: '\\Prezentarea mea grozavă',
-  content: {
-    slide1: md`
+  content: [
+    md`
 # Prezentarea mea grozavă
+
+<!--IconMenu-->
+
+<!--IconSettings-->
     `,
-    slide2: md`
+    md`
 ## Niște conținut grozav aici...
 
 Link: [Pisică de casă - Wikipedia](https://ro.wikipedia.org/wiki/Cat)'
@@ -17,7 +23,7 @@ Link: [Pisică de casă - Wikipedia](https://ro.wikipedia.org/wiki/Cat)'
 <button>Text buton</button>
 ~~~
     `,
-  },
+  ],
 };
 
 export default roSlideSetTranslations;

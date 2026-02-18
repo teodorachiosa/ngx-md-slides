@@ -1,7 +1,13 @@
 <app-slides>
 
-  <app-slide style="--slide-background: var(--rose)">
-    <app-markdown [data]="'sets.set1.content.slide1' | translate" [components]="components"></app-markdown>
+  @for (item of content(); track $index) {
+  <app-slide>
+    <app-markdown [data]="item"></app-markdown>
+  </app-slide>
+  }
+
+  <!-- <app-slide style="--slide-background: var(--rose)">
+    <app-markdown [data]="'sets.set1.content.slide1' | translate"></app-markdown>
   </app-slide>
 
   <app-slide-group></app-slide-group>
@@ -20,6 +26,6 @@
 
   <app-slide style="--slide-background: var(--violet)">
     <app-markdown [data]="'sets.set1.content.slide2' | translate"></app-markdown>
-  </app-slide>
+  </app-slide> -->
 
 </app-slides>
