@@ -1,10 +1,10 @@
 :host {
-  --slide-background: var(--surface-background);
-  --slide-text: color-mix(in hsl, var(--slide-background), var(--text) 85%);
-  --slides-link-hover: color-mix(in hsl, var(--slide-background), var(--text) 70%);
-  --slides-borders: color-mix(in hsl, var(--slide-background), var(--text) 30%);
-  --slides-table-headers: color-mix(in hsl, var(--slide-background), var(--text) 12%);
-  --slides-background-light: color-mix(in hsl, var(--slide-background), var(--inverted-text) 60%);
+  --background-color: var(--surface-background);
+  --slide-text: color-mix(in hsl, var(--background-color), var(--text) 85%);
+  --slides-link-hover: color-mix(in hsl, var(--background-color), var(--text) 70%);
+  --slides-borders: color-mix(in hsl, var(--background-color), var(--text) 30%);
+  --slides-table-headers: color-mix(in hsl, var(--background-color), var(--text) 12%);
+  --slides-background-light: color-mix(in hsl, var(--background-color), var(--inverted-text) 60%);
 
   position: relative;
   display: flex;
@@ -13,7 +13,7 @@
   max-width: 100%;
   min-width: fit-content;
   margin: 0 auto;
-  background: var(--slide-background);
+  background: var(--background-color);
   color: var(--slide-text);
 
   ::ng-deep .slide-number {

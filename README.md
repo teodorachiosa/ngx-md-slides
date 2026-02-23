@@ -47,8 +47,7 @@ Using this approach, you can create groups of slides that can be reused in multi
 app
 |__ layout
 |__ shared
-|__ slides <-- slide set components go here
-|__ templates <-- reusable slide templates/components go here
+|__ slides <-- slide content goes here
 ```
 
 ## How to run

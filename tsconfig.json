@@ -19,7 +19,6 @@
       "@layout/*": ["app/layout/*"],
       "@shared/*": ["app/shared/*"],
       "@slides/*": ["app/slides/*"],
-      "@templates/*": ["app/templates/*"]
     }
   },
   "angularCompilerOptions": {
