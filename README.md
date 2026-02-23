@@ -29,11 +29,12 @@ Using this approach, you can create groups of slides that can be reused in multi
 - [x] Implement responsive UI (Update translations, Update a11y)
 - [x] Move dark mode toggle to a side menu (along with other settings)
 - [x] Update the max-width / zoom feature to use minus/plus buttons instead and a select control for the zoom level (similar to FireFox's PDF viewer) 
+- [x] Use TypeScript for translations instead of JSON
+- [x] Add a footer section (for credits, links)
 
 ## To do:
 
-- [ ] Use TypeScript (and separate Markdown files?) for translations instead of JSON
-- [ ] Add a footer section (for credits, links)
+- [ ] Support Angular components in Markdown (WIP)
 - [ ] Fix Vercel 404 error
 - [ ] Add total number of pages and a "jump to page" feature
 - [ ] Save settings to cookies
