@@ -1,18 +1,21 @@
-import { Translation } from '@shared/models/translation.model';
+import { TranslatedSlideSet } from '@shared/models/translation.model';
 
 const md = String.raw;
 
-const roSlideSetTranslations: Translation = {
+const roSlideSetTranslations: TranslatedSlideSet = {
   title: '\\Prezentarea mea grozavă',
-  content: [
-    md`
+  slides: [
+    {
+      content: md`
 # Prezentarea mea grozavă
 
 <!--IconMenu-->
 
 <!--IconSettings-->
-    `,
-    md`
+      `,
+    },
+    {
+      content: md`
 ## Niște conținut grozav aici...
 
 Link: [Pisică de casă - Wikipedia](https://ro.wikipedia.org/wiki/Cat)'
@@ -22,7 +25,8 @@ Link: [Pisică de casă - Wikipedia](https://ro.wikipedia.org/wiki/Cat)'
 ~~~html
 <button>Text buton</button>
 ~~~
-    `,
+      `,
+    },
   ],
 };
 

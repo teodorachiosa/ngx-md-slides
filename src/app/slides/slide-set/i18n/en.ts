@@ -1,11 +1,13 @@
-import { Translation } from "@shared/models/translation.model";
+import { TranslatedSlideSet } from '@shared/models/translation.model';
 
 const md = String.raw;
 
-const enSlideSetTranslations: Translation = {
+const enSlideSetTranslations: TranslatedSlideSet = {
   title: '\\My awesome presentation',
-  content: [
-    md`
+  slides: [
+    {
+      backgroundColor: '\\var(--teal)',
+      content: md`
 # My awesome presentation
 
 (made with <span aria-hidden="true">🩷</span><span class="sr-only">love</span>)
@@ -13,8 +15,11 @@ const enSlideSetTranslations: Translation = {
 <!--IconMenu-->
 
 <!--IconSettings-->
-    `,
-    md`
+      `,
+    },
+    {
+      backgroundColor: '\\var(--violet)',
+      content: md`
 ## Some awesome content goes here
 
 Link: [Cat - Wikipedia](https://en.wikipedia.org/wiki/Cat)
@@ -24,7 +29,8 @@ Link: [Cat - Wikipedia](https://en.wikipedia.org/wiki/Cat)
 ~~~html
 <button>Button text</button>
 ~~~
-    `,
+      `,
+    },
   ],
 };
 

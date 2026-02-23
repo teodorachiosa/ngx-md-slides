@@ -10,6 +10,7 @@ import { Markdown } from '@shared/components/markdown/markdown';
 import { IconMenu } from '@shared/components/icons/icon-menu/icon-menu';
 import { IconSettings } from '@shared/components/icons/icon-settings/icon-settings';
 import { AttachComponentService } from '@shared/services/attach-component.service';
+import { TranslatedSlide } from '@shared/models/translation.model';
 
 @Component({
   selector: 'app-slide-set',
@@ -21,15 +22,16 @@ export class SlideSet implements OnInit, AfterViewInit, OnDestroy {
   attachComponentService = inject(AttachComponentService);
   translateService = inject(TranslateService);
   components = [IconMenu, IconSettings];
-  content = signal<string[]>([]);
+  content = signal<TranslatedSlide[]>([]);
   translationsSubscription = Subscription.EMPTY;
   languageChangeSubscription = Subscription.EMPTY;
 
   ngOnInit(): void {
     this.translationsSubscription = this.translateService
-      .stream('sets.set1.content')
-      .subscribe((data: Record<number, string>) => {
+      .stream('sets.set1.slides')
+      .subscribe((data: Record<number, TranslatedSlide>) => {
         const contentArray = Object.values(data);
+
         if (Array.isArray(contentArray)) {
           this.content.set(contentArray);
         }

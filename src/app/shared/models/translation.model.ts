@@ -1,4 +1,9 @@
-export type Translation = {
+export type TranslatedSlideSet = {
   title?: string;
-  content?: string[];
+  slides?: TranslatedSlide[];
+};
+
+export type TranslatedSlide = {
+  backgroundColor?: string;
+  content: string;
 };

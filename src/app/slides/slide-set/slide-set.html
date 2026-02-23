@@ -1,29 +1,9 @@
 <app-slides>
 
   @for (item of content(); track $index; let i = $index) {
-  <app-slide [id]="`slide-${i + 1}`">
-    <app-markdown [data]="item"></app-markdown>
+  <app-slide [id]="`slide-${i + 1}`" [style]="`--background-color: ${item.backgroundColor}`">
+    <app-markdown [data]="item.content"></app-markdown>
   </app-slide>
   }
-
-  <!-- <app-slide style="--background-color: var(--rose)">
-    <app-markdown [data]="'sets.set1.content.slide1' | translate"></app-markdown>
-  </app-slide>
-
-  <app-slide style="--background-color: var(--yellow)">
-    <app-markdown [data]="'sets.set1.content.slide2' | translate"></app-markdown>
-  </app-slide>
-
-  <app-slide style="--background-color: var(--purple)">
-    <app-markdown [data]="'sets.set1.content.slide2' | translate"></app-markdown>
-  </app-slide>
-
-  <app-slide style="--background-color: var(--teal)">
-    <app-markdown [data]="'sets.set1.content.slide2' | translate"></app-markdown>
-  </app-slide>
-
-  <app-slide style="--background-color: var(--violet)">
-    <app-markdown [data]="'sets.set1.content.slide2' | translate"></app-markdown>
-  </app-slide> -->
 
 </app-slides>
