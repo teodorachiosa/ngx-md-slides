@@ -1,6 +1,7 @@
-import { Component, inject, signal, OnInit, AfterViewInit } from '@angular/core';
+import { Component, inject, signal, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
 
 import { TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 
 import { Slide } from '@shared/components/slide/slide';
 import { Slides } from '@shared/components/slides/slides';
@@ -16,29 +17,40 @@ import { AttachComponentService } from '@shared/services/attach-component.servic
   templateUrl: './slide-set.html',
   styleUrl: './slide-set.css',
 })
-export class SlideSet implements OnInit, AfterViewInit {
+export class SlideSet implements OnInit, AfterViewInit, OnDestroy {
   attachComponentService = inject(AttachComponentService);
   translateService = inject(TranslateService);
   components = [IconMenu, IconSettings];
   content = signal<string[]>([]);
+  translationsSubscription = Subscription.EMPTY;
+  languageChangeSubscription = Subscription.EMPTY;
 
   ngOnInit(): void {
-    this.translateService.stream('sets.set1.content').subscribe((data: Record<number, string>) => {
-      const contentArray = Object.values(data);
-      if (Array.isArray(contentArray)) {
-        this.content.set(contentArray);
-      }
-    });
+    this.translationsSubscription = this.translateService
+      .stream('sets.set1.content')
+      .subscribe((data: Record<number, string>) => {
+        const contentArray = Object.values(data);
+        if (Array.isArray(contentArray)) {
+          this.content.set(contentArray);
+        }
+      });
   }
 
   ngAfterViewInit(): void {
     if (this.components?.length) {
       this.attachComponents();
 
-      this.translateService.onLangChange.subscribe(() => {
-        this.attachComponents();
+      this.languageChangeSubscription = this.translateService.onLangChange.subscribe(() => {
+        setTimeout(() => {
+          this.attachComponents();
+        });
       });
     }
+  }
+
+  ngOnDestroy(): void {
+    this.translationsSubscription.unsubscribe();
+    this.languageChangeSubscription.unsubscribe();
   }
 
   attachComponents(): void {
