@@ -29,7 +29,6 @@ export class SlideSet implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit(): void {
     this.baseTranslation.set(this.translateService.instant('sets.set1.slides'));
-    console.log(this.baseTranslation());
 
     this.translationsSubscription = this.translateService
       .stream('sets.set1.slides')
