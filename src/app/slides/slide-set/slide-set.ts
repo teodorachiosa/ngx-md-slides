@@ -22,26 +22,29 @@ export class SlideSet implements OnInit, AfterViewInit, OnDestroy {
   attachComponentService = inject(AttachComponentService);
   translateService = inject(TranslateService);
   components = [IconMenu, IconSettings];
-  content = signal<TranslatedSlide[]>([]);
+  slidesContent = signal<TranslatedSlide[]>([]);
+  baseTranslation = signal<TranslatedSlide[]>([]);
   translationsSubscription = Subscription.EMPTY;
   languageChangeSubscription = Subscription.EMPTY;
 
   ngOnInit(): void {
+    this.baseTranslation.set(this.translateService.instant('sets.set1.slides'));
+    console.log(this.baseTranslation());
+
     this.translationsSubscription = this.translateService
       .stream('sets.set1.slides')
-      .subscribe((data: Record<number, TranslatedSlide>) => {
-        const contentArray = Object.values(data);
+      .subscribe((newTranslationObject: Record<number, TranslatedSlide>) => {
+        const newTranslation = Object.values(newTranslationObject);
 
-        if (Array.isArray(contentArray)) {
-          this.content.set(contentArray);
+        if (Array.isArray(newTranslation)) {
+          const mergedContent = this.mergeTranslations(this.baseTranslation(), newTranslation);
+          this.slidesContent.set(mergedContent);
         }
       });
   }
 
   ngAfterViewInit(): void {
     if (this.components?.length) {
-      console.log(this.components);
-
       setTimeout(() => {
         this.attachComponents();
       });
@@ -62,6 +65,25 @@ export class SlideSet implements OnInit, AfterViewInit, OnDestroy {
   attachComponents(): void {
     this.components.forEach((component) => {
       this.attachComponentService.attachComponent(component);
+    });
+  }
+
+  mergeTranslations(baseTranslation: TranslatedSlide[], newTranslation: TranslatedSlide[]): TranslatedSlide[] {
+    let lastColorVariableUsed: string | undefined;
+
+    return newTranslation.map((item, index) => {
+      const baseColor = baseTranslation[index]?.backgroundColor;
+
+      const resolvedColor = item.backgroundColor ?? baseColor ?? lastColorVariableUsed;
+
+      if (resolvedColor) {
+        lastColorVariableUsed = resolvedColor;
+      }
+
+      return {
+        backgroundColor: resolvedColor ?? '',
+        content: item.content,
+      };
     });
   }
 }
