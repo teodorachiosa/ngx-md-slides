@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "env NG_BUILD_MANGLE=false ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:ngx-md-slides": "node dist/ngx-md-slides/server/server.mjs"

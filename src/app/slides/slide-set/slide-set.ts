@@ -40,6 +40,8 @@ export class SlideSet implements OnInit, AfterViewInit, OnDestroy {
 
   ngAfterViewInit(): void {
     if (this.components?.length) {
+      console.log(this.components);
+
       setTimeout(() => {
         this.attachComponents();
       });

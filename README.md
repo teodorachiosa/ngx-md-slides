@@ -35,6 +35,7 @@ Using this approach, you can create groups of slides that can be reused in multi
 ## To do:
 
 - [ ] Support Angular components in Markdown (WIP)
+- [ ] Move extra slide set logic to a service
 - [ ] Fix Vercel 404 error
 - [ ] Add total number of pages and a "jump to page" feature
 - [ ] Save settings to cookies
