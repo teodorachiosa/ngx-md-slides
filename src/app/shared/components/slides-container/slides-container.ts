@@ -12,12 +12,12 @@ import { State } from '@shared/models/state.model';
 import { StateService } from '@shared/services/state.service';
 
 @Component({
-  selector: 'app-slides',
+  selector: 'app-slides-container',
   imports: [],
-  templateUrl: './slides.html',
-  styleUrl: './slides.css',
+  templateUrl: './slides-container.html',
+  styleUrl: './slides-container.css',
 })
-export class Slides implements AfterViewInit {
+export class SlidesContainer implements AfterViewInit {
   stateService = inject(StateService);
   elementRef = inject(ElementRef);
   renderer = inject(Renderer2);

@@ -1,8 +1,19 @@
-const enSlideSet2Translations = {
+import { TranslatedSlideSet } from '@shared/models/translation.model';
+
+const md = String.raw;
+
+const enSlideSet2Translations: TranslatedSlideSet = {
   title: '\\Another awesome presentation',
-  content: {
-    slide1: '# Another awesome presentation',
-  },
+  slides: [
+    {
+      content: md`
+# Another awesome presentation
+
+<!--IconMenu-->
+
+      `,
+    },
+  ],
 };
 
 export default enSlideSet2Translations;

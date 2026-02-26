@@ -1,37 +1,35 @@
-import { Component, inject, signal, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
+import { inject, signal, OnInit, AfterViewInit, OnDestroy, Directive, WritableSignal } from '@angular/core';
 
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
-
-import { Slide } from '@shared/components/slide/slide';
-import { Slides } from '@shared/components/slides/slides';
-import { Markdown } from '@shared/components/markdown/markdown';
 
 import { IconMenu } from '@shared/components/icons/icon-menu/icon-menu';
 import { IconSettings } from '@shared/components/icons/icon-settings/icon-settings';
 import { AttachComponentService } from '@shared/services/attach-component.service';
 import { TranslatedSlide } from '@shared/models/translation.model';
 
-@Component({
-  selector: 'app-slide-set',
-  imports: [Slides, Slide, Markdown],
-  templateUrl: './slide-set.html',
-  styleUrl: './slide-set.css',
+@Directive({
+  selector: '[slide-set]',
 })
 export class SlideSet implements OnInit, AfterViewInit, OnDestroy {
+  setName = '';
   attachComponentService = inject(AttachComponentService);
   translateService = inject(TranslateService);
   components = [IconMenu, IconSettings];
   slidesContent = signal<TranslatedSlide[]>([]);
-  baseTranslation = signal<TranslatedSlide[]>([]);
+  baseTranslation: WritableSignal<TranslatedSlide[]> = signal<TranslatedSlide[]>([]);
   translationsSubscription = Subscription.EMPTY;
   languageChangeSubscription = Subscription.EMPTY;
 
   ngOnInit(): void {
-    this.baseTranslation.set(this.translateService.instant('sets.set1.slides'));
+    const baseTranslationRaw = this.translateService.instant(this.setName);
+    if(typeof baseTranslationRaw === 'string' && baseTranslationRaw === this.setName) {
+      return;
+    }
 
+    this.baseTranslation.set(baseTranslationRaw);
     this.translationsSubscription = this.translateService
-      .stream('sets.set1.slides')
+      .stream(this.setName)
       .subscribe((newTranslationObject: Record<number, TranslatedSlide>) => {
         const newTranslation = Object.values(newTranslationObject);
 
@@ -67,7 +65,10 @@ export class SlideSet implements OnInit, AfterViewInit, OnDestroy {
     });
   }
 
-  mergeTranslations(baseTranslation: TranslatedSlide[], newTranslation: TranslatedSlide[]): TranslatedSlide[] {
+  mergeTranslations(
+    baseTranslation: TranslatedSlide[],
+    newTranslation: TranslatedSlide[],
+  ): TranslatedSlide[] {
     let lastColorVariableUsed: string | undefined;
 
     return newTranslation.map((item, index) => {

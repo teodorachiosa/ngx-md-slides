@@ -1,4 +1,4 @@
-import enSlideSetTranslations from "@slides/slide-set/i18n/en";
+import enSlideSet1Translations from "@slides/slide-set1/i18n/en";
 import enSlideSet2Translations from "@slides/slide-set2/i18n/en";
 
 const en = {
@@ -24,7 +24,7 @@ const en = {
     present: '\\Present',
   },
   sets: {
-    set1: enSlideSetTranslations,
+    set1: enSlideSet1Translations,
     set2: enSlideSet2Translations,
   },
 };

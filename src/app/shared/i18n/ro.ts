@@ -1,4 +1,4 @@
-import roSlideSetTranslations from '@slides/slide-set/i18n/ro';
+import roSlideSetTranslations from '@slides/slide-set1/i18n/ro';
 import roSlideSet2Translations from '@slides/slide-set2/i18n/ro';
 
 const ro = {

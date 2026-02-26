@@ -8,7 +8,7 @@ export const routes: Routes = [
   },
   {
     path: 'slide-set1',
-    loadComponent: () => import('./slides/slide-set/slide-set').then((m) => m.SlideSet),
+    loadComponent: () => import('./slides/slide-set1/slide-set1').then((m) => m.SlideSet1),
     data: {title: 'sets.set1.title'}
   },
   {

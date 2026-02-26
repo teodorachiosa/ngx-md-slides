@@ -2,7 +2,7 @@ import { TranslatedSlideSet } from '@shared/models/translation.model';
 
 const md = String.raw;
 
-const enSlideSetTranslations: TranslatedSlideSet = {
+const enSlideSet1Translations: TranslatedSlideSet = {
   title: '\\My awesome presentation',
   slides: [
     {
@@ -34,4 +34,4 @@ Link: [Cat - Wikipedia](https://en.wikipedia.org/wiki/Cat)
   ],
 };
 
-export default enSlideSetTranslations;
+export default enSlideSet1Translations;

@@ -1,9 +1,0 @@
-<app-slides>
-
-  @for (item of slidesContent(); track $index; let i = $index) {
-  <app-slide [id]="`slide-${i + 1}`" [style]="`--background-color: ${item.backgroundColor}`">
-    <app-markdown [data]="item.content"></app-markdown>
-  </app-slide>
-  }
-
-</app-slides>
