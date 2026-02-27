@@ -9,9 +9,9 @@ const roSlideSetTranslations: TranslatedSlideSet = {
       content: md`
 # Prezentarea mea grozavă
 
-<!--IconMenu-->
+<!--MenuIcon-->
 
-<!--IconSettings-->
+<!--SettingsIcon-->
       `,
     },
     {

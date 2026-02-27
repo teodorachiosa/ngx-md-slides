@@ -3,8 +3,8 @@ import { inject, signal, OnInit, AfterViewInit, OnDestroy, Directive, WritableSi
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 
-import { IconMenu } from '@shared/components/icons/icon-menu/icon-menu';
-import { IconSettings } from '@shared/components/icons/icon-settings/icon-settings';
+import { MenuIcon } from '@shared/components/icons/menu-icon/menu-icon';
+import { SettingsIcon } from '@shared/components/icons/settings-icon/settings-icon';
 import { AttachComponentService } from '@shared/services/attach-component.service';
 import { TranslatedSlide } from '@shared/models/translation.model';
 
@@ -15,7 +15,7 @@ export class SlideSet implements OnInit, AfterViewInit, OnDestroy {
   setName = '';
   attachComponentService = inject(AttachComponentService);
   translateService = inject(TranslateService);
-  components = [IconMenu, IconSettings];
+  components = [MenuIcon, SettingsIcon];
   slidesContent = signal<TranslatedSlide[]>([]);
   baseTranslation: WritableSignal<TranslatedSlide[]> = signal<TranslatedSlide[]>([]);
   translationsSubscription = Subscription.EMPTY;

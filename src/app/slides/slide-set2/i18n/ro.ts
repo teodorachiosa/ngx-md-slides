@@ -9,7 +9,7 @@ const roSlideSet2Translations: TranslatedSlideSet = {
       content: md`
 # Altă prezentare minunată
 
-<!--IconMenu-->
+<!--MenuIcon-->
       `,
     },
   ],

@@ -9,7 +9,7 @@ const enSlideSet2Translations: TranslatedSlideSet = {
       content: md`
 # Another awesome presentation
 
-<!--IconMenu-->
+<!--MenuIcon-->
 
       `,
     },

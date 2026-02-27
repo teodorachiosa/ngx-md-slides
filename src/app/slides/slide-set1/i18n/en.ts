@@ -12,9 +12,9 @@ const enSlideSet1Translations: TranslatedSlideSet = {
 
 (made with <span aria-hidden="true">🩷</span><span class="sr-only">love</span>)
 
-<!--IconMenu-->
+<!--MenuIcon-->
 
-<!--IconSettings-->
+<!--SettingsIcon-->
       `,
     },
     {

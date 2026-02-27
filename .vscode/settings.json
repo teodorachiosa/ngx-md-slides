@@ -1,8 +1,18 @@
 {
   "workbench.colorCustomizations": {
+    "editorIndentGuide.background1": "#00000001",
+    "editorIndentGuide.activeBackground1": "#ff9900",
     "activityBar.background": "#34102b",
     "titleBar.activeBackground": "#491731",
-    "titleBar.activeForeground": "#fcf5f9"
+    "titleBar.activeForeground": "#fcf5f9",
+    "titleBar.inactiveBackground": "#431538",
+    "titleBar.inactiveForeground": "#FDF9FC",
+    "statusBar.background": "#431538",
+    "statusBar.foreground": "#FDF9FC",
+    "statusBar.debuggingBackground": "#431538",
+    "statusBar.debuggingForeground": "#FDF9FC",
+    "statusBar.noFolderBackground": "#431538",
+    "statusBar.noFolderForeground": "#FDF9FC"
   },
   "html.format.wrapAttributes": "force-aligned",
   "[html]": {

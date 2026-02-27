@@ -6,9 +6,9 @@ import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { State, View } from '@shared/models/state.model';
 import { ContentLanguage } from '@shared/models/content-language.model';
 import { StateService } from '@shared/services/state.service';
-import { IconMenu } from '@shared/components/icons/icon-menu/icon-menu';
-import { IconSettings } from '@shared/components/icons/icon-settings/icon-settings';
-import { IconPresentation } from '@shared/components/icons/icon-presentation/icon-presentation';
+import { MenuIcon } from '@shared/components/icons/menu-icon/menu-icon';
+import { SettingsIcon } from '@shared/components/icons/settings-icon/settings-icon';
+import { PresentationIcon } from '@shared/components/icons/presentation-icon/presentation-icon';
 import { routes } from 'app/app.routes';
 
 const WIDTH_STEP = 10;
@@ -22,9 +22,9 @@ const WIDTH_MAX = 100;
     TranslatePipe,
     RouterLink,
     RouterLinkActive,
-    IconMenu,
-    IconSettings,
-    IconPresentation,
+    MenuIcon,
+    SettingsIcon,
+    PresentationIcon,
   ],
   templateUrl: './header.html',
   styleUrl: './header.css',
