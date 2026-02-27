@@ -10,7 +10,7 @@ const ro = {
     skipToNavigation: '\\Sari la navigare',
     skipToSlides: '\\Sari la conținutul principal',
     noteTitle: '\\Notă',
-    noteText: '\\Schimbările setărilor se aplică instant',
+    noteText: '\\Schimbările se aplică instant',
     contentView: '\\Mod conținut',
     webView: '\\Carduri',
     slideView: '\\Slide-uri',

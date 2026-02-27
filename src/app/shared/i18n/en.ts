@@ -10,7 +10,7 @@ const en = {
     skipToNavigation: '\\Skip to navigation',
     skipToSlides: '\\Skip to main content',
     noteTitle: '\\Note',
-    noteText: '\\Changes to settings apply instantly',
+    noteText: '\\Changes apply instantly',
     contentView: '\\Content view',
     webView: '\\Cards',
     slideView: '\\Slides',
