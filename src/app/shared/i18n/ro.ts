@@ -7,7 +7,7 @@ const ro = {
     settings: '\\Setări',
     siteTitle: '\\Slide-uri',
     skipToPresent: '\\Sari la "Prezintă"',
-    skipToNavigation: '\\Sari la meniu',
+    skipToNavigation: '\\Sari la "Meniu"',
     skipToSlides: '\\Sari la conținutul principal',
     noteTitle: '\\Notă',
     noteText: '\\Schimbările se aplică instant',

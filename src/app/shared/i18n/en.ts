@@ -7,7 +7,7 @@ const en = {
     settings: '\\Settings',
     siteTitle: '\\Slides',
     skipToPresent: '\\Skip to "Present"',
-    skipToNavigation: '\\Skip to menu',
+    skipToNavigation: '\\Skip to "Menu"',
     skipToSlides: '\\Skip to main content',
     noteTitle: '\\Note',
     noteText: '\\Changes apply instantly',
