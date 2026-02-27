@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, DOCUMENT, inject, OnDestroy } from '@angular/core';
+import { AfterViewInit, Component, DOCUMENT, inject, OnDestroy, OnInit } from '@angular/core';
 import { ViewportScroller } from '@angular/common';
 import {
   RouterLink,
@@ -14,6 +14,7 @@ import { Subscription } from 'rxjs';
 
 import { StateService } from '@shared/services/state.service';
 import { Header } from '@layout/header/header';
+import { CurrentRouteService } from '@shared/services/current-route.service';
 
 const ANCHOR_SCROLL_OFFSET = 200;
 
@@ -23,7 +24,7 @@ const ANCHOR_SCROLL_OFFSET = 200;
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
-export class App implements AfterViewInit, OnDestroy {
+export class App implements OnInit, AfterViewInit, OnDestroy {
   router = inject(Router);
   activatedRoute = inject(ActivatedRoute);
   document = inject(DOCUMENT);
@@ -31,12 +32,14 @@ export class App implements AfterViewInit, OnDestroy {
   stateService = inject(StateService);
   viewportScroller = inject(ViewportScroller);
   titleService = inject(Title);
+  currentRouteService = inject(CurrentRouteService);
   routerEventsSubscription: Subscription = Subscription.EMPTY;
   mainHeading?: HTMLHeadingElement;
   previousUrlNoFragment?: string;
   pageTitle = '';
+  currentRoute = '';
 
-  constructor() {
+  ngOnInit() {
     this.translateService.setFallbackLang('en');
   }
 
@@ -45,9 +48,10 @@ export class App implements AfterViewInit, OnDestroy {
       this.makeMainHeadingFocusable();
 
       if (navigationEvent instanceof NavigationEnd) {
-        this.setPageTitle();
+        this.onRouteChange();
+
         this.translateService.onLangChange.subscribe(() => {
-          this.setPageTitle();
+          this.onRouteChange();
         });
       }
 
@@ -66,13 +70,18 @@ export class App implements AfterViewInit, OnDestroy {
     this.routerEventsSubscription.unsubscribe();
   }
 
-  getPageTitle(): string {
-    return `${this.translateService.instant(this.activatedRoute.firstChild?.snapshot.data['title'] ?? '.')} - ${this.translateService.instant('ui.siteTitle')}`;
+  onRouteChange(): void {
+    this.setPageTitle();
+    this.currentRoute = this.currentRouteService.getCurrentRoute();
   }
 
   setPageTitle(): void {
     this.pageTitle = this.getPageTitle();
     this.titleService.setTitle(this.pageTitle);
+  }
+
+  getPageTitle(): string {
+    return `${this.translateService.instant(this.activatedRoute.firstChild?.snapshot.data['title'] ?? '.')} - ${this.translateService.instant('ui.siteTitle')}`;
   }
 
   makeMainHeadingFocusable(): void {

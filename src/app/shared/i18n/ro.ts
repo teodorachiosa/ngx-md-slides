@@ -7,7 +7,7 @@ const ro = {
     settings: '\\Setări',
     siteTitle: '\\Slide-uri',
     skipToPresent: '\\Sari la "Prezintă"',
-    skipToNavigation: '\\Sari la navigare',
+    skipToNavigation: '\\Sari la meniu',
     skipToSlides: '\\Sari la conținutul principal',
     noteTitle: '\\Notă',
     noteText: '\\Schimbările se aplică instant',
@@ -22,6 +22,8 @@ const ro = {
     off: '\\Dezactivat',
     language: '\\Limba',
     present: '\\Prezintă',
+    notFoundTitle: '\\Pagina nu a fost găsită',
+    notFoundSubtitle: '\\Încearcă una din paginile din meniu'
   },
   sets: {
     set1: roSlideSetTranslations,
