@@ -71,18 +71,18 @@ export class SlideSet implements OnInit, AfterViewInit, OnDestroy {
   ): TranslatedSlide[] {
     let lastColorVariableUsed: string | undefined;
 
-    return newTranslation.map((item, index) => {
+    return newTranslation.map((newTranslationItem, index) => {
       const baseColor = baseTranslation[index]?.backgroundColor;
 
-      const resolvedColor = item.backgroundColor ?? baseColor ?? lastColorVariableUsed;
+      const newColor = newTranslationItem.backgroundColor ?? baseColor ?? lastColorVariableUsed;
 
-      if (resolvedColor) {
-        lastColorVariableUsed = resolvedColor;
+      if (newColor) {
+        lastColorVariableUsed = newColor;
       }
 
       return {
-        backgroundColor: resolvedColor ?? '',
-        content: item.content,
+        backgroundColor: newColor ?? '',
+        content: newTranslationItem.content,
       };
     });
   }

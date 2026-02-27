@@ -47,7 +47,9 @@ Using this approach, you can create groups of slides that can be reused in multi
 app
 |__ layout
 |__ shared
-|__ slides <-- slide content goes here
+|__ slides <-- all slide sets
+|____ slide-set1 <-- demo slide set
+|______ i18n <-- translations for slide-set1
 ```
 
 ## How to run
