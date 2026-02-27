@@ -36,10 +36,13 @@ Using this approach, you can create slide content that can be reused in multiple
 
 ## To do:
 
+- [ ] Update icon naming convention (from icon-menu to menu-icon)
+- [ ] Scale all content in "slides" view, not just text
 - [ ] Add total number of pages and a "jump to page" feature
 - [ ] Save settings to cookies
 - [ ] Perform accessibility checks (WCAG 2.2 minimum) and add an accessibility statement
 - [ ] Save presentation as PDF
+- [ ] Add "loading" states
 - [ ] Implement non-hardcoded languages (and use a `select` element)
 
 ## Folder structure
